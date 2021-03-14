@@ -2,6 +2,9 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import SearchScreen from "../screens/SearchScreen";
+import FriendScreen from "../screens/FriendScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -13,19 +16,19 @@ export default function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="Home"
-        component={HomeNavigator}
+        component={HomeScreen}
       />
       <BottomTab.Screen
         name="Search"
-        component={SearchNavigator}
+        component={SearchScreen}
       />
       <BottomTab.Screen
-        name="Search"
-        component={SearchNavigator}
+        name="Friends"
+        component={FriendScreen}
       />
       <BottomTab.Screen
-        name="Search"
-        component={SearchNavigator}
+        name="Profile"
+        component={ProfileScreen}
       />
     </BottomTab.Navigator>
   );
