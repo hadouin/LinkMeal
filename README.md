@@ -1,3 +1,3 @@
+![LinkMeal Logo](/app/assets/logoText-Orange.png)
 # LinkMeal 
-  ![LinkMeal Logo](/app/assets/logoText-Orange.png)
 JAC projet
