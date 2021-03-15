@@ -1,4 +1,4 @@
-![LinkMeal Logo](/app/assets/logoText-Orange.png)
+![LinkMeal Logo](/app/assets/images/logoText-Orange.png)
 # The Project
 Welcome to the official **LinkMeal** repository ! 
 This is a dev project for Junior ISEP Academy  
