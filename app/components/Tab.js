@@ -1,11 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+// import { AntDesign } from "@expo/vector-icons";
+import { createIconSetFromIcoMoon } from "@expo/vector-icons";
+
+const Icon = createIconSetFromIcoMoon(
+  require("../assets/icomoon/selection.json"),
+  "IcoMoon",
+  "icomoon.ttf"
+);
 
 export default function Tab({ color, tab, onPress, icon }) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <AntDesign name="home" size={50} color={color} />
+      <Icon name={icon} size={50} color={color} />
     </TouchableOpacity>
   );
 }

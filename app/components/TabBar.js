@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
-import { roundToNearestPixel } from "react-native/Libraries/Utilities/PixelRatio";
 import Tab from "./Tab";
 import ShareButton from "./ShareButton";
 
@@ -18,6 +17,8 @@ export default function TabBar({ state, navigation }) {
       navigation.navigate(activeTab);
     }
   };
+  const renderIcon = (currentTab, icon) =>
+    currentTab === selected ? icon + "1" : icon;
 
   return (
     <View style={styles.box}>
@@ -26,7 +27,7 @@ export default function TabBar({ state, navigation }) {
           {routes.map((route, index) => (
             <Tab
               tab={route}
-              // icon={}
+              icon={renderIcon(route.name, route.params.icon)}
               onPress={() => handlePress(route.name, index)}
               color={renderColor(route.name)}
               key={route.key}
