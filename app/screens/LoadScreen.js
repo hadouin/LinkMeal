@@ -4,8 +4,14 @@ import { View, StyleSheet, Image } from "react-native";
 function LoadScreen(props) {
   return (
     <View style={styles.background}>
-      <Image style={styles.logo} source={require("../assets/Logo-White.png")} />
-      <Image style={styles.path1} source={require("../assets/path1.png")} />
+      <Image
+        style={styles.logo}
+        source={require("../assets/images/Logo-White.png")}
+      />
+      <Image
+        style={styles.path1}
+        source={require("../assets/images/path1.png")}
+      />
     </View>
   );
 }
