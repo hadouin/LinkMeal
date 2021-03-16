@@ -3,10 +3,11 @@ import { Text, View, StyleSheet, Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
 function Ticket(props) {
-  console.log(props);
-  console.log(props.author);
-  const author = props.author;
-  console.log(author);
+  //console.log(props);
+  //console.log(props.author);
+  //const author = props.author;
+  //console.log(author);
+
   const AuthorView = (props) => {
     return (
       <View>
@@ -18,16 +19,23 @@ function Ticket(props) {
   const PriceButton = (props) => {
     return (
       <View>
-        <Text>{props.price}</Text>
+        <Text>prix</Text>
       </View>
     );
   };
 
   return (
     <View style={styles.container}>
-      <Image source={{ height: 100, width: 100, uri: props.image }} />
+      <Image
+        style={styles.image}
+        source={{
+          height: 200,
+          width: 200,
+          uri: "https://randomuser.me/api/portraits/men/75.jpg",
+        }}
+      />
       <View style={styles.details}>
-        <Text>{props.title}</Text>
+        <Text>Pizza</Text>
         <View style={styles.bar} />
         <AuthorView />
         <Text>{props.description}</Text>
@@ -39,29 +47,37 @@ function Ticket(props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: 500,
-    width: 500,
+    flex: 1,
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
     backgroundColor: "white",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
   ticket: {
-    height: 100,
-    width: 100,
+    flex: 1,
     flexDirection: "row",
   },
   details: {
-    height: 100,
-    width: 100,
+    flex: 1,
     flexDirection: "column",
-    backgroundColor: "blue",
   },
   bar: {
-    height: 20,
-    width: 100,
+    height: 10,
+    width: 50,
     flexDirection: "row",
     backgroundColor: "orange",
+  },
+  image: {
+    flex: 1,
+    resizeMode: "stretch",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
 });
 export default Ticket;
