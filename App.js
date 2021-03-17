@@ -1,21 +1,17 @@
-//import { StatusBar } from "expo-status-bar";
-import React from "react";
+import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import LoadScreen from "./app/screens/LoadScreen";
-//import BottomTabNavigator from "./app/navigation/BottomNavigator";
 import TabNavigator from "./app/navigation/TabNavigator";
 import { NavigationContainer } from "@react-navigation/native";
-import HomeScreen from "./app/screens/HomeScreen";
 import * as Font from "expo-font";
-//import { createIconSetFromIcoMoon } from "@expo/vector-icons";
-//import AppLoading from "expo-app-loading";
 
 export default function App() {
   useEffect(() => {
     async function loadFonts() {
       await Font.loadAsync({
-        Comfortaa: require("../assets/fonts/comfortaa/Comfortaa-Regular.ttf"),
-        Montserrat: require("../assets/fonts/montserrat/Montserrat-Regular.ttf"),
+        Comfortaa: require("./app/assets/fonts/comfortaa/Comfortaa-Regular.ttf"),
+        Montserrat: require("./app/assets/fonts/montserrat/Montserrat-Regular.ttf"),
+        IcoMoon: require("./app/assets/icomoon/icomoon.ttf"),
       })
         .then((res) => {
           console.log("FONTS LOADED!");
@@ -36,7 +32,7 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       <NavigationContainer>
-        <HomeScreen />
+        <TabNavigator />
       </NavigationContainer>
     </View>
   );

@@ -38,7 +38,7 @@ function Ticket(props) {
         <Text>Pizza</Text>
         <View style={styles.bar} />
         <AuthorView />
-        <Text style={{fontFamily: }}>{props.description}</Text>
+        <Text style={{ fontFamily: "Comfortaa" }}>{props.description}</Text>
         <PriceButton />
       </View>
     </View>
