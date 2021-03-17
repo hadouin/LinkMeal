@@ -12,9 +12,9 @@ export default function TicketFeed(props) {
       keyExtractor={(item, index) => item._id}
       renderItem={({ item }) => (
         <>
-          <TouchableOpacity style={styles.membre}>
+          <View style={styles.membre}>
             <Ticket />
-          </TouchableOpacity>
+          </View>
         </>
       )}
     />

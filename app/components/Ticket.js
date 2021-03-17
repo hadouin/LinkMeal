@@ -1,7 +1,8 @@
 import { Comfortaa_400Regular } from "@expo-google-fonts/comfortaa";
 import { Montserrat_400Regular } from "@expo-google-fonts/montserrat";
+import { NavigationHelpersContext } from "@react-navigation/core";
 import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
 function Ticket(props) {
@@ -27,13 +28,13 @@ function Ticket(props) {
   };
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Image
         style={styles.image}
         source={{
           height: 200,
           width: 200,
-          uri: "https://randomuser.me/api/portraits/men/75.jpg",
+          uri: "https://picsum.photos/200",
         }}
       />
       <View style={styles.details}>
@@ -47,14 +48,12 @@ function Ticket(props) {
         </Text>
         <PriceButton />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingHorizontal: 5,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
@@ -68,19 +67,18 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "stretch",
     flexDirection: "column",
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
     alignItems: "flex-start",
-    paddingLeft: 8,
+    paddingLeft: 10,
   },
   bar: {
     height: 10,
     width: 50,
     flexDirection: "row",
-    backgroundColor: "orange",
+    backgroundColor: "#ff8b4b",
   },
   image: {
     flex: 1,
-    paddingLeft: 20,
     resizeMode: "contain",
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
