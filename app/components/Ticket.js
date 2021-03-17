@@ -38,7 +38,7 @@ function Ticket(props) {
         <Text>Pizza</Text>
         <View style={styles.bar} />
         <AuthorView />
-        <Text>{props.description}</Text>
+        <Text style={{fontFamily: }}>{props.description}</Text>
         <PriceButton />
       </View>
     </View>
@@ -48,8 +48,9 @@ function Ticket(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingHorizontal: 5,
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
     borderBottomLeftRadius: 10,
@@ -64,6 +65,9 @@ const styles = StyleSheet.create({
   details: {
     flex: 1,
     flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    paddingLeft: 8,
   },
   bar: {
     height: 10,
@@ -73,7 +77,8 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    resizeMode: "stretch",
+    paddingLeft: 20,
+    resizeMode: "contain",
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
     borderTopLeftRadius: 10,
