@@ -1,30 +1,37 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Animated,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import TabNavigator from "./app/navigation/TabNavigator";
 import { NavigationContainer } from "@react-navigation/native";
 import * as Font from "expo-font";
+import {
+  useFonts,
+  Comfortaa_400Regular,
+  Comfortaa_500Medium,
+  Comfortaa_700Bold,
+  Comfortaa_600SemiBold,
+} from "@expo-google-fonts/comfortaa";
+import {
+  Montserrat_400Regular,
+  Montserrat_700Bold,
+  Montserrat_800ExtraBold,
+} from "@expo-google-fonts/montserrat";
+import LoadScreen from "./app/screens/LoadScreen";
 
 export default function App() {
-  useEffect(() => {
-    async function loadFonts() {
-      await Font.loadAsync({
-        Comfortaa: require("./app/assets/fonts/comfortaa/Comfortaa-Regular.ttf"),
-        Montserrat: require("./app/assets/fonts/montserrat/Montserrat-Regular.ttf"),
-        IcoMoon: require("./app/assets/icomoon/icomoon.ttf"),
-      })
-        .then((res) => {
-          console.log("FONTS LOADED!");
-          setTimeout(() => {}, 1000);
-        })
-        .catch((Err) => {
-          console.log(Err);
-        });
-    }
-    loadFonts();
-  }, []);
   const [fontsLoaded] = useFonts({
     IcoMoon: require("./app/assets/icomoon/icomoon.ttf"),
+    Comfortaa_400Regular,
+    Comfortaa_500Medium,
+    Comfortaa_600SemiBold,
+    Comfortaa_700Bold,
+    Montserrat_400Regular,
   });
   if (!fontsLoaded) {
     return <LoadScreen />;

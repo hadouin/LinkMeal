@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "stretch",
     backgroundColor: "#e0e0e0",
+    padding: 10,
   },
   membre: {
     flexWrap: "wrap",

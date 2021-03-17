@@ -1,3 +1,5 @@
+import { Comfortaa_400Regular } from "@expo-google-fonts/comfortaa";
+import { Montserrat_400Regular } from "@expo-google-fonts/montserrat";
 import React from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
@@ -35,10 +37,14 @@ function Ticket(props) {
         }}
       />
       <View style={styles.details}>
-        <Text>Pizza</Text>
+        <Text style={{ fontFamily: "Comfortaa_700Bold", fontSize: 30 }}>
+          Pizza
+        </Text>
         <View style={styles.bar} />
         <AuthorView />
-        <Text style={{ fontFamily: "Comfortaa" }}>{props.description}</Text>
+        <Text style={{ fontFamily: "Montserrat_400Regular", fontSize: 10 }}>
+          Lorem ipsum dolor sit amet ceci est un texte de test
+        </Text>
         <PriceButton />
       </View>
     </View>
@@ -58,12 +64,9 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },
-  ticket: {
-    flex: 1,
-    flexDirection: "row",
-  },
   details: {
     flex: 1,
+    alignSelf: "stretch",
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "flex-start",
