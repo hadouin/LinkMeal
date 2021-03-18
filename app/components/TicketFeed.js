@@ -3,8 +3,8 @@ import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Ticket from "./Ticket";
 import tickets from "../../tickets.json";
-
 export default function TicketFeed(props) {
+  let authorName;
   return (
     <FlatList
       contentContainerStyle={styles.container}
@@ -16,7 +16,13 @@ export default function TicketFeed(props) {
             <Ticket
               picture={item.picture}
               title={item.title}
-              author={item.author}
+              author={[
+                tickets[item.index].author.name,
+                tickets[item.index].author.picture,
+              ]}
+              description={item.description}
+              tags={item.tags}
+              price={item.price}
             />
           </View>
         </>

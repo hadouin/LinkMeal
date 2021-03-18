@@ -14,7 +14,7 @@ export default function ShareButton() {
   return (
     <TouchableOpacity style={styles.button}>
       <View style={styles.container}>
-        <Entypo name="share" size={60} color="white" />
+        <Entypo name="share" size={50} color="white" />
       </View>
     </TouchableOpacity>
   );
@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#ff8b4b",
     borderRadius: 80,
-    height: 80,
-    width: 80,
+    height: 70,
+    width: 70,
     justifyContent: "center",
     alignItems: "center",
     paddingRight: 2,

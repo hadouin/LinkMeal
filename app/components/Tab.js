@@ -12,7 +12,7 @@ const Icon = createIconSetFromIcoMoon(
 export default function Tab({ color, tab, onPress, icon }) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Icon name={icon} size={50} color={color} />
+      <Icon name={icon} size={40} color={color} />
     </TouchableOpacity>
   );
 }
