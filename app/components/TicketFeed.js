@@ -13,7 +13,11 @@ export default function TicketFeed(props) {
       renderItem={({ item }) => (
         <>
           <View style={styles.membre}>
-            <Ticket />
+            <Ticket
+              picture={item.picture}
+              title={item.title}
+              author={item.author}
+            />
           </View>
         </>
       )}
