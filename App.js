@@ -36,6 +36,7 @@ export default function App() {
   if (!fontsLoaded) {
     return <LoadScreen />;
   }
+
   return (
     <View style={{ flex: 1 }}>
       <NavigationContainer>

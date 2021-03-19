@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 const Root = createStackNavigator();
 
 function HomeScreen(props) {
-  return <TicketFeed />;
+  return <TicketFeed {...props} />;
 }
 const styles = StyleSheet.create({});
 export default HomeScreen;

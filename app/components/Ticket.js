@@ -7,12 +7,8 @@ import { FlatList } from "react-native-gesture-handler";
 
 function Ticket(props) {
   console.log(props);
-  //console.log(props.author);
-  //const author = props.author;
-  //console.log(author);
-
   return (
-    <TouchableOpacity style={styles.container}>
+    <View style={styles.container}>
       <Image
         style={styles.image}
         source={{
@@ -49,7 +45,7 @@ function Ticket(props) {
           />
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 

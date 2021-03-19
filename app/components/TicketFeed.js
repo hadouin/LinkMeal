@@ -3,8 +3,9 @@ import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Ticket from "./Ticket";
 import tickets from "../../tickets.json";
-export default function TicketFeed(props) {
-  let authorName;
+import { useNavigation } from "@react-navigation/native";
+
+export default function TicketFeed({ props, navigation, route }) {
   return (
     <FlatList
       contentContainerStyle={styles.container}
@@ -12,7 +13,10 @@ export default function TicketFeed(props) {
       keyExtractor={(item, index) => item._id}
       renderItem={({ item }) => (
         <>
-          <View style={styles.membre}>
+          <TouchableOpacity
+            style={styles.membre}
+            onPress={() => navigation.navigate("Details", { ...props })}
+          >
             <Ticket
               picture={item.picture}
               title={item.title}
@@ -24,7 +28,7 @@ export default function TicketFeed(props) {
               tags={item.tags}
               price={item.price}
             />
-          </View>
+          </TouchableOpacity>
         </>
       )}
     />
