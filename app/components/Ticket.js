@@ -1,6 +1,3 @@
-import { Comfortaa_400Regular } from "@expo-google-fonts/comfortaa";
-import { Montserrat_400Regular } from "@expo-google-fonts/montserrat";
-import { NavigationHelpersContext } from "@react-navigation/core";
 import React from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
