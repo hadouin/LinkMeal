@@ -1,14 +1,21 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { createIconSetFromIcoMoon } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 export default function DetailScreen(props) {
+  const Icon = createIconSetFromIcoMoon(
+    require("../assets/icomoon/selection.json"),
+    "IcoMoon",
+    "icomoon.ttf"
+  );
+
   let item = props.route.params.item;
-  console.log(item);
   return (
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require("../assets/images/logoText-Orange.png")}
+        source={{ width: "100%", height: "100%", uri: item.picture }}
       />
       <View style={{ padding: 10 }}>
         <Text style={styles.title}>{item.title}</Text>
@@ -29,22 +36,34 @@ export default function DetailScreen(props) {
         </View>
 
         <View style={styles.description}>
-          {/* description ingredients et contact + GPS*/}
           <Text>{item.description}</Text>
-          <View>
-            <TouchableOpacity>
-              <Image />
-              <Text>yes</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image />
-              <Text>Test</Text>
-            </TouchableOpacity>
+          <View style={styles.buttons}>
+            <Icon.Button
+              style={styles.navButton}
+              name="Chat"
+              size={30}
+              backgroundColor="#22E05C"
+              borderRadius={100}
+            >
+              Contact
+            </Icon.Button>
+            <Icon.Button
+              style={styles.navButton}
+              name="Location"
+              size={30}
+              backgroundColor="#226CE0"
+              borderRadius={100}
+            >
+              Navigate
+            </Icon.Button>
           </View>
         </View>
       </View>
 
-      <TouchableOpacity>{/*commander*/}</TouchableOpacity>
+      <TouchableOpacity>
+        <Text></Text>
+        <Image />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -55,9 +74,13 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat_400Regular",
   },
   image: {
-    resizeMode: "contain",
+    resizeMode: "cover",
+    width: "100%",
+    height: "25%",
   },
-  description: { padding: 5 },
+  description: {
+    padding: 5,
+  },
   author: {
     padding: 5,
     flexDirection: "row",
@@ -70,4 +93,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#ff8b4b",
   },
   title: { fontSize: 40, fontFamily: "Comfortaa_700Bold" },
+  navButton: {
+    alignItems: "center",
+    paddingHorizontal: 10,
+    marginHorizontal: 20,
+  },
+  buttons: {
+    alignItems: "center",
+    justifyContent: "space-around",
+    flexDirection: "row",
+    width: "100%",
+  },
 });
