@@ -6,7 +6,7 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
 function Ticket(props) {
-  console.log(props);
+  console.log(props.navigation);
   return (
     <View style={styles.container}>
       <Image
@@ -38,9 +38,16 @@ function Ticket(props) {
           {props.tags}
         </Text>
         <View style={styles.price}>
-          <Text>{props.price}</Text>
+          <Text style={{ fontSize: 20, fontFamily: "Comfortaa_700Bold" }}>
+            {props.price}
+          </Text>
           <Image
-            style={{ width: 20, aspectRatio: 1 }}
+            style={{
+              height: 30,
+              width: 30,
+              resizeMode: "contain",
+              marginHorizontal: 5,
+            }}
             source={require("../assets/images/bitmeal.png")}
           />
         </View>
@@ -87,6 +94,7 @@ const styles = StyleSheet.create({
   price: {
     flexDirection: "row",
     alignSelf: "flex-end",
+    alignItems: "center",
   },
 });
 export default Ticket;

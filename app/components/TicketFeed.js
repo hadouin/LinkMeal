@@ -5,7 +5,7 @@ import Ticket from "./Ticket";
 import tickets from "../../tickets.json";
 import { useNavigation } from "@react-navigation/native";
 
-export default function TicketFeed({ props, navigation, route }) {
+export default function TicketFeed({ navigation, route }) {
   return (
     <FlatList
       contentContainerStyle={styles.container}
@@ -15,9 +15,10 @@ export default function TicketFeed({ props, navigation, route }) {
         <>
           <TouchableOpacity
             style={styles.membre}
-            onPress={() => navigation.navigate("Details", { ...props })}
+            onPress={() => navigation.navigate("Details", { item: item })}
           >
             <Ticket
+              navigation={navigation}
               picture={item.picture}
               title={item.title}
               author={[
