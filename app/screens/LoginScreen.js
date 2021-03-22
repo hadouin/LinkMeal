@@ -34,24 +34,39 @@ export default function LoginScreen(props) {
         >
           Connexion
         </Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeEmail}
-          value={number}
-          placeholder="useless placeholder"
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangePassword}
-          value={password}
-          placeholder="useless placeholder"
-        />
+        <View style={{ width: "100%" }}>
+          <Text style={{ paddingLeft: 10 }}>Adresse Email</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeEmail}
+            value={number}
+            placeholder="useless placeholder"
+          />
+          <Text style={{ paddingLeft: 10 }}>Mot de passe</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangePassword}
+            value={password}
+            placeholder="useless placeholder"
+          />
+        </View>
         <TouchableOpacity
           style={styles.connect}
           onPress={() => props.route.params.setIsLoggedIn(true)}
         >
-          <Text>Connect</Text>
+          <Text
+            style={{
+              color: "#fff",
+              fontFamily: "Comfortaa_700Bold",
+              fontSize: 20,
+            }}
+          >
+            Se connecter
+          </Text>
         </TouchableOpacity>
+        <Text style={{ textAlign: "center", fontSize: 10 }}>
+          Si vous avez oublié votre mot de passe veuillez cliquer ici
+        </Text>
       </View>
       <TouchableOpacity style={styles.register}>
         <Text
@@ -91,6 +106,7 @@ const styles = StyleSheet.create({
   },
   connexion: {
     alignItems: "center",
+    justifyContent: "space-around",
     margin: 20,
     width: windowWidth * (3 / 4),
     height: windowHeight / 2,
@@ -116,6 +132,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   input: {
-    borderBottomWidth: 1,
+    margin: 5,
+    backgroundColor: "#eee",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  connect: {
+    backgroundColor: "#ff8b4b",
+    paddingHorizontal: 30,
+    paddingBottom: 10,
+    paddingTop: 7,
+    borderRadius: 20,
   },
 });
