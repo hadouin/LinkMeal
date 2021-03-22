@@ -7,6 +7,7 @@ import ShareScreen from "../screens/ShareScreen";
 import FriendScreen from "../screens/FriendScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import TabBar from "../components/TabBar";
+import HomeNav from "./HomeNav";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +16,7 @@ export default function TabNavigator() {
     <Tab.Navigator tabBar={(props) => <TabBar {...props} />}>
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeNav}
         initialParams={{ icon: "Home" }}
       />
       <Tab.Screen
