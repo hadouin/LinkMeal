@@ -1,13 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import TabNavigator from "./app/navigation/TabNavigator";
-import { NavigationContainer } from "@react-navigation/native";
 import * as Font from "expo-font";
 import {
   useFonts,
@@ -22,6 +14,8 @@ import {
   Montserrat_800ExtraBold,
 } from "@expo-google-fonts/montserrat";
 import LoadScreen from "./app/screens/LoadScreen";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import RootNav from "./app/navigation/RootNav";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -37,10 +31,8 @@ export default function App() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-      <NavigationContainer>
-        <TabNavigator />
-      </NavigationContainer>
-    </View>
+    <SafeAreaProvider>
+      <RootNav />
+    </SafeAreaProvider>
   );
 }
