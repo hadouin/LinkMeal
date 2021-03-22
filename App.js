@@ -1,6 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState, useEffect } from "react";
-import * as Font from "expo-font";
+import React from "react";
 import {
   useFonts,
   Comfortaa_400Regular,
@@ -16,6 +14,7 @@ import {
 import LoadScreen from "./app/screens/LoadScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import RootNav from "./app/navigation/RootNav";
+import { SafeAreaView } from "react-native";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
