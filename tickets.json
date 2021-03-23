@@ -8,10 +8,10 @@
     "price": 2,
     "description": "Incididunt non occaecat dolor tempor exercitation labore Lorem ipsum in. Sit veniam ipsum occaecat velit occaecat consectetur reprehenderit nisi sint. Qui sit dolore velit aute culpa nulla ex ad nulla esse. Adipisicing elit culpa incididunt eiusmod ut dolor veniam.\r\n",
     "author": {
-      "name": "Charmaine Gutierrez",
+      "name": "John Doe",
       "address": "311 Cypress Court, Gorst, Nebraska, 6318",
       "about": "Commodo sint aute id proident reprehenderit. Aute aliquip sint fugiat qui qui nostrud Lorem tempor qui quis. Enim consectetur eiusmod aliquip ea.\r\n",
-      "picture": "http://placehold.it/32x32"
+      "picture": "https://randomuser.me/api/portraits/men/75.jpg"
     }
   },
   {
@@ -26,7 +26,7 @@
       "name": "Lola Haney",
       "address": "539 Bergen Place, Witmer, Virginia, 121",
       "about": "Cupidatat eu pariatur quis aute dolore exercitation deserunt. Cillum magna id fugiat reprehenderit laboris tempor dolore pariatur eiusmod aliqua exercitation sint. Laborum ad ad occaecat nulla nostrud irure cillum qui sint sunt duis ex in. Ad adipisicing cillum veniam anim Lorem mollit. Nisi est dolore amet aliqua magna ex deserunt incididunt et commodo sint. Reprehenderit minim ex velit veniam aute.\r\n",
-      "picture": "http://placehold.it/32x32"
+      "picture": "https://randomuser.me/api/portraits/women/76.jpg"
     }
   },
   {
@@ -41,7 +41,7 @@
       "name": "Morgan Carey",
       "address": "384 Seigel Court, Skyland, New Jersey, 5469",
       "about": "Qui mollit voluptate deserunt do aute proident. Labore qui id excepteur officia do et qui reprehenderit pariatur ad. Adipisicing elit sit culpa dolor do sint ullamco. Ipsum est sint duis est occaecat cupidatat. Aute consectetur pariatur consequat ut elit consequat anim officia exercitation. Ad magna esse laboris excepteur fugiat deserunt nulla nostrud sunt incididunt labore nostrud. Magna proident ex in eu cupidatat duis pariatur ullamco anim officia duis veniam.\r\n",
-      "picture": "http://placehold.it/32x32"
+      "picture": "https://randomuser.me/api/portraits/women/77.jpg"
     }
   },
   {
