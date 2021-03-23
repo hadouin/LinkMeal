@@ -144,6 +144,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingTop: 7,
     borderRadius: 20,
+    alignSelf: "stretch",
+    alignItems: "center",
+    marginHorizontal: 10,
   },
   inputNames: {
     paddingLeft: 10,
