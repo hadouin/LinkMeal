@@ -31,9 +31,7 @@ function Ticket(props) {
           />
           <Text style={{ margin: 5 }}>{props.author[0]}</Text>
         </View>
-        <Text style={{ fontFamily: "Montserrat_400Regular", fontSize: 10 }}>
-          {props.tags}
-        </Text>
+        <Text>{props.tags}</Text>
         <View style={styles.price}>
           <Text style={{ fontSize: 20, fontFamily: "Comfortaa_700Bold" }}>
             {props.price}

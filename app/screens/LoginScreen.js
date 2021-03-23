@@ -35,19 +35,19 @@ export default function LoginScreen(props) {
           Connexion
         </Text>
         <View style={{ width: "100%" }}>
-          <Text style={{ paddingLeft: 10 }}>Adresse Email</Text>
+          <Text style={styles.inputNames}>Adresse Email</Text>
           <TextInput
             style={styles.input}
             onChangeText={onChangeEmail}
             value={number}
-            placeholder="useless placeholder"
+            placeholder="link@meal.fr"
           />
-          <Text style={{ paddingLeft: 10 }}>Mot de passe</Text>
+          <Text style={styles.inputNames}>Mot de passe</Text>
           <TextInput
             style={styles.input}
             onChangeText={onChangePassword}
             value={password}
-            placeholder="useless placeholder"
+            placeholder="Password"
           />
         </View>
         <TouchableOpacity
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee",
     paddingHorizontal: 10,
     paddingVertical: 5,
+    borderRadius: 10,
   },
   connect: {
     backgroundColor: "#ff8b4b",
@@ -143,5 +144,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingTop: 7,
     borderRadius: 20,
+  },
+  inputNames: {
+    paddingLeft: 10,
+    fontFamily: "Montserrat_400Regular",
   },
 });
