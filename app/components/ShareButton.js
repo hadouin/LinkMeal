@@ -27,7 +27,7 @@ export default function ShareButton(props) {
       </TouchableOpacity>
 
       <Modal
-        animationType="fade"
+        animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {

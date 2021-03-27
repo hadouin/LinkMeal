@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Ticket from "./Ticket";
-import tickets from "../../tickets.json";
+import tickets from "../data/tickets.json";
 import { useNavigation } from "@react-navigation/native";
 
 export default function TicketFeed({ navigation, route }) {

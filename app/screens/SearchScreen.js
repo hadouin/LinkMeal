@@ -1,12 +1,9 @@
 import React from "react";
+import TicketFeed from "../components/TicketFeed";
 import { Text, View, StyleSheet } from "react-native";
 
 function SearchScreen(props) {
-  return (
-    <View style={styles.container}>
-      <Text>SearchScreen</Text>
-    </View>
-  );
+  return <TicketFeed {...props} />;
 }
 
 const styles = StyleSheet.create({

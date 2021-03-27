@@ -131,13 +131,6 @@ const styles = StyleSheet.create({
     borderColor: "#ff8b4b",
     borderRadius: 10,
   },
-  input: {
-    margin: 5,
-    backgroundColor: "#eee",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 10,
-  },
   connect: {
     backgroundColor: "#ff8b4b",
     paddingHorizontal: 30,
@@ -147,6 +140,13 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     alignItems: "center",
     marginHorizontal: 10,
+  },
+  input: {
+    margin: 5,
+    backgroundColor: "#eee",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 10,
   },
   inputNames: {
     paddingLeft: 10,

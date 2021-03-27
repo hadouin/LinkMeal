@@ -36,7 +36,7 @@ export default function DetailScreen(props) {
         </View>
 
         <View style={styles.description}>
-          <Text>{item.description}</Text>
+          <Text style={{ padding: 5 }}>{item.description}</Text>
           <View style={styles.buttons}>
             <Icon.Button
               style={styles.navButton}
@@ -57,6 +57,25 @@ export default function DetailScreen(props) {
               Navigate
             </Icon.Button>
           </View>
+          <TouchableOpacity
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Text>Commander </Text>
+            <Text>{item.price}</Text>
+            <Image
+              style={{
+                height: 40,
+                width: 40,
+                margin: 5,
+                resizeMode: "contain",
+              }}
+              source={require("../assets/images/bitmeal.png")}
+            />
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -99,6 +118,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   buttons: {
+    padding: 5,
     alignItems: "center",
     justifyContent: "space-around",
     flexDirection: "row",

@@ -11,7 +11,7 @@ import HomeNav from "./HomeNav";
 
 const Tab = createBottomTabNavigator();
 
-export default function TabNavigator() {
+export default function TabNav() {
   return (
     <Tab.Navigator
       screenOptions={{ headerShown: false }}
