@@ -22,17 +22,17 @@ export default function LoginScreen(props) {
       <View style={styles.circle} />
       <Image
         style={styles.logo}
-        source={require("../assets/images/LogoCenterWhiteTight.png")}
+        source={require("../assets/images/LogoCenterOrangeTight.png")}
       />
       <View style={styles.connexion}>
         <Text
           style={{
             fontFamily: "Comfortaa_700Bold",
-            fontSize: 35,
+            fontSize: 28,
             color: "#444444",
           }}
         >
-          Connexion
+          Créer un compte
         </Text>
         <View style={{ width: "100%" }}>
           <Text style={styles.inputNames}>Adresse Email</Text>
@@ -49,6 +49,13 @@ export default function LoginScreen(props) {
             value={password}
             placeholder="Password"
           />
+          <Text style={styles.inputNames}>Confirmer le mot de passe</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeEmail}
+            value={number}
+            placeholder="link@meal.fr"
+          />
         </View>
         <TouchableOpacity
           style={styles.connect}
@@ -58,46 +65,30 @@ export default function LoginScreen(props) {
             style={{
               color: "#fff",
               fontFamily: "Comfortaa_700Bold",
-              fontSize: 20,
+              fontSize: 18,
             }}
           >
-            Se connecter
+            Créer mon compte
           </Text>
         </TouchableOpacity>
-        <Text style={{ textAlign: "center", fontSize: 10 }}>
-          Si vous avez oublié votre mot de passe veuillez cliquer ici
-        </Text>
       </View>
-      <TouchableOpacity
-        style={styles.register}
-        onPress={() => props.navigation.navigate("Register")}
-      >
-        <Text
-          style={{
-            color: "#ff8b4b",
-            fontFamily: "Comfortaa_700Bold",
-            fontSize: 20,
-          }}
-        >
-          Créer un compte
-        </Text>
-      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#ff8b4b",
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
   circle: {
     width: 900,
     height: 900,
     borderRadius: 900 / 2,
-    backgroundColor: "#ff8b4b",
+    backgroundColor: "#fff",
     position: "absolute",
     top: -900 / 2 - 25,
     left: windowWidth / 2 - 900 / 2,
@@ -105,6 +96,8 @@ const styles = StyleSheet.create({
   logo: {
     resizeMode: "contain",
     height: "20%",
+    margin: 20,
+    marginTop: "10%",
   },
   connexion: {
     alignItems: "center",

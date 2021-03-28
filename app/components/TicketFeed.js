@@ -14,7 +14,7 @@ export default function TicketFeed({ navigation, route }) {
       renderItem={({ item }) => (
         <>
           <TouchableOpacity
-            style={styles.membre}
+            style={styles.ticket}
             onPress={() => navigation.navigate("Details", { item: item })}
           >
             <Ticket
@@ -43,12 +43,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#e0e0e0",
     padding: 10,
   },
-  membre: {
+  ticket: {
     flexWrap: "wrap",
     alignItems: "center",
     flexDirection: "column",
     alignContent: "center",
     padding: 5,
+    marginVertical: 5,
   },
   name: {
     flexWrap: "wrap",

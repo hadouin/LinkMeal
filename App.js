@@ -15,28 +15,36 @@ import LoadScreen from "./app/screens/LoadScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import RootNav from "./app/navigation/RootNav";
 import { SafeAreaView } from "react-native";
+import { createServer } from "miragejs";
+
+if (window.server) {
+  server.shutdown();
+}
+
+window.server = createServer({
+  routes() {
+    this.get("/api/movies", () => {
+      return {
+        movies: [
+          { id: 1, name: "Inception", year: 2010 },
+          { id: 2, name: "Interstellar", year: 2014 },
+          { id: 3, name: "Dunkirk", year: 2017 },
+        ],
+      };
+    });
+  },
+});
 
 export default function App() {
   const [data, setData] = useState([]);
-  const getData = () => {
-    fetch("tickets.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        console.log(response);
-        return response.json();
-      })
-      .then(function (myJson) {
-        console.log(myJson);
-        setData(myJson);
-      });
-  };
+  let [movies, setMovies] = React.useState([]);
+
   useEffect(() => {
-    getData();
+    fetch("/api/movies")
+      .then((res) => res.json())
+      .then((json) => setMovies(json.movies));
   }, []);
+
   const [fontsLoaded] = useFonts({
     IcoMoon: require("./app/assets/icomoon/icomoon.ttf"),
     Comfortaa_400Regular,
