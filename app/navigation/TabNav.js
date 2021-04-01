@@ -5,9 +5,10 @@ import HomeScreen from "../screens/HomeScreen";
 import SearchScreen from "../screens/SearchScreen";
 import ShareScreen from "../screens/ShareScreen";
 import FriendScreen from "../screens/FriendScreen";
-import ProfileScreen from "../screens/ProfileScreen";
+import ProfileNav from "../navigation/ProfileNav";
 import TabBar from "../components/TabBar";
 import HomeNav from "./HomeNav";
+import SearchNav from "./SearchNav";
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +25,7 @@ export default function TabNav() {
       />
       <Tab.Screen
         name="Search"
-        component={SearchScreen}
+        component={SearchNav}
         initialParams={{ icon: "Search" }}
       />
       <Tab.Screen
@@ -34,7 +35,7 @@ export default function TabNav() {
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={ProfileNav}
         initialParams={{ icon: "Profile" }}
       />
     </Tab.Navigator>

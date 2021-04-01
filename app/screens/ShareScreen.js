@@ -5,14 +5,16 @@ import {
   View,
   TextInput,
   Pressable,
+  TouchableOpacity,
   Image,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { createIconSetFromIcoMoon } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
 import { Comfortaa_600SemiBold } from "@expo-google-fonts/comfortaa";
-function ShareScreen(props) {
+import InputComp from "../components/InputComp";
+
+export default function ShareScreen(props) {
   const Icon = createIconSetFromIcoMoon(
     require("../assets/icomoon/selection.json"),
     "IcoMoon",
@@ -63,6 +65,8 @@ function ShareScreen(props) {
   };
 
   const [title, onChangeTitle] = React.useState(null);
+  const [description, onChangeDescription] = React.useState(null);
+
   return (
     <View style={styles.modalView}>
       <View style={styles.container}>
@@ -82,7 +86,7 @@ function ShareScreen(props) {
             />
           )}
         </Pressable>
-        <View style={{ margin: 5 }}>
+        <View style={styles.titreBox}>
           <Text style={styles.inputName}>Titre</Text>
           <TextInput
             style={styles.input}
@@ -92,16 +96,54 @@ function ShareScreen(props) {
           />
         </View>
       </View>
+
+      <View style={styles.inputBox}>
+        <Text style={styles.inputName}>Description</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeDescription}
+          value={description}
+          placeholder="Une description alléchante de votre superbe plat !"
+          multiline={true}
+        />
+      </View>
+      <InputComp placeholder={"ok depart"} titre={"Ttest"} />
+      <InputComp placeholder={"ok relai"} titre={"tttest"} />
+      <TouchableOpacity
+        style={styles.connect}
+        onPress={() => console.log("yo")}
+      >
+        <Text
+          style={{
+            color: "#fff",
+            fontFamily: "Comfortaa_700Bold",
+            fontSize: 20,
+          }}
+        >
+          Poster
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  connect: {
+    backgroundColor: "#ff8b4b",
+    paddingHorizontal: 30,
+    paddingBottom: 10,
+    paddingTop: 7,
+    borderRadius: 20,
+    alignSelf: "stretch",
+    alignItems: "center",
+    marginHorizontal: 10,
+  },
   container: {
-    flex: 1,
+    backgroundColor: "#00ff0050",
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "flex-start",
+    alignSelf: "stretch",
   },
   modalView: {
     flex: 1,
@@ -109,8 +151,8 @@ const styles = StyleSheet.create({
     marginBottom: 120,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 25,
-    alignItems: "flex-start",
+    padding: 20,
+    alignItems: "stretch",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -134,15 +176,23 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   input: {
+    width: "100%",
     backgroundColor: "#eee",
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 10,
   },
   inputName: {
+    backgroundColor: "#ff000050",
     paddingLeft: 5,
     fontFamily: "Montserrat_400Regular",
   },
+  titreBox: {
+    backgroundColor: "#0000ff50",
+    flex: 1,
+    margin: 10,
+  },
+  inputBox: {
+    marginVertical: 5,
+  },
 });
-
-export default ShareScreen;
