@@ -19,7 +19,7 @@ function ProfileScreen(props) {
           <Text>Username</Text>
         </View>
         <View style={styles.balance}>
-          <Text>#balance</Text>
+          <Text style={{ textAlign: "right" }}>#balance</Text>
           <Image
             style={styles.bitmeal}
             source={require("../assets/images/bitmeal.png")}
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   profile: {
+    padding: 10,
     flexDirection: "row",
     backgroundColor: "#f005",
     marginVertical: 10,
@@ -56,17 +57,26 @@ const styles = StyleSheet.create({
     height: "20%",
   },
   user: {
+    backgroundColor: "#0f05",
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   pp: {
-    flex: 1,
+    borderRadius: 500,
+    height: "80%",
+    aspectRatio: 1,
+    resizeMode: "cover",
   },
   balance: {
+    backgroundColor: "#ff05",
+    justifyContent: "center",
+    alignItems: "center",
     flex: 1,
     flexDirection: "row",
   },
   bitmeal: {
-    flex: 1,
+    margin: 5,
     width: 30,
     height: 30,
     resizeMode: "contain",
