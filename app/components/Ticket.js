@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
 function Ticket(props) {
-  console.log(props.navigation);
   return (
     <View style={styles.container}>
       <Image
@@ -53,6 +52,7 @@ function Ticket(props) {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: "row",
     padding: 15,
     justifyContent: "center",
@@ -62,6 +62,15 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   details: {
     flex: 1,

@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/local/bin/yarn
+  /usr/bin/node /usr/local/bin/yarn add expo-image-picker
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -37,14 +37,19 @@ npm manifest:
       "@react-navigation/stack": "^5.14.3",
       "expo": "~40.0.0",
       "expo-font": "~8.4.0",
+      "expo-image-picker": "~9.2.0",
       "expo-status-bar": "~1.0.3",
       "firebase": "^8.3.0",
+      "miragejs": "^0.1.41",
       "react": "16.13.1",
       "react-dom": "16.13.1",
       "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
       "react-native-gesture-handler": "^1.8.0",
+      "react-native-image": "^0.1.1",
+      "react-native-image-crop-picker": "^0.36.0",
+      "react-native-image-picker": "^3.3.2",
       "react-native-reanimated": "^1.13.2",
-      "react-native-safe-area-context": "3.1.9",
+      "react-native-safe-area-context": "^3.1.9",
       "react-native-screens": "^2.15.2",
       "react-native-web": "^0.15.0"
     },
@@ -2094,6 +2099,14 @@ Lockfile:
       opencollective-postinstall "^2.0.1"
       superstruct "^0.6.2"
   
+  "@react-navigation/bottom-tabs@^5.11.8":
+    version "5.11.8"
+    resolved "https://registry.yarnpkg.com/@react-navigation/bottom-tabs/-/bottom-tabs-5.11.8.tgz#0af8d5859b1ad781bdd86e8236ceaed60dc355fe"
+    integrity sha512-/0AiP+QPGKe35NdGxSjq0XpZjYvURy8H2E4rZMRHJ+fUoq+cX0ze/XQeQ8IHMpoc568ZwOGRgdUToUGZEDMpvA==
+    dependencies:
+      color "^3.1.3"
+      react-native-iphone-x-helper "^1.3.0"
+  
   "@react-navigation/core@^5.15.2":
     version "5.15.2"
     resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.15.2.tgz#6aa374c7bcb6ffcaac8e2a7f8bdb2f9aba469b31"
@@ -3491,6 +3504,14 @@ Lockfile:
     dependencies:
       fbjs "1.0.0"
       fontfaceobserver "^2.1.0"
+  
+  expo-image-picker@~9.2.0:
+    version "9.2.1"
+    resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-9.2.1.tgz#113a46bfc8ef9bf675e8700b1bf7b8472f4de516"
+    integrity sha512-IPrBY7+zgxUUZqjtLVfj+PTKMm6lmI48Z9b8BKJhY/gF49g/cDZwWN0mrg+3G3a3ug5TtIr+pektsNWp1V+T1g==
+    dependencies:
+      expo-permissions "~10.0.0"
+      uuid "7.0.2"
   
   expo-keep-awake@~8.4.0:
     version "8.4.0"
@@ -5948,6 +5969,21 @@ Lockfile:
       invariant "^2.2.4"
       prop-types "^15.7.2"
   
+  react-native-image-crop-picker@^0.36.0:
+    version "0.36.0"
+    resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.36.0.tgz#adf5a5677c3ae0e0bdaa18c73d880db2190e3023"
+    integrity sha512-1S8+0EZJmUMWMcdo2tTadqIIsJo7aPxPed0P7Cop3DhBqEeYrAWfgdrJq9VoTXI+cIrOOcTAxn4NZPz+DQEn7g==
+  
+  react-native-image-picker@^3.3.2:
+    version "3.3.2"
+    resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-3.3.2.tgz#dde494ce4fbb5c36a4ea56346b751b85223d6b25"
+    integrity sha512-7z902J7a7j2rUM6zzyLSGpBSDfXy/V9ssSDKV0QyoQpr7COZs3zsJye2PU1Z4TRqmuNtREIeG5m1NdwtpcXBkg==
+  
+  react-native-image@^0.1.1:
+    version "0.1.1"
+    resolved "https://registry.yarnpkg.com/react-native-image/-/react-native-image-0.1.1.tgz#b1900eec58ecbd8071a98c78de0fc2dac5c7e104"
+    integrity sha1-sZAO7FjsvYBxqYx43g/C2sXH4QQ=
+  
   react-native-iphone-x-helper@^1.3.0:
     version "1.3.1"
     resolved "https://registry.npmjs.org/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz"
@@ -5964,6 +6000,11 @@ Lockfile:
     version "3.1.9"
     resolved "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-3.1.9.tgz"
     integrity sha512-wmcGbdyE/vBSL5IjDPReoJUEqxkZsywZw5gPwsVUV1NBpw5eTIdnL6Y0uNKHE25Z661moxPHQz6kwAkYQyorxA==
+  
+  react-native-safe-area-context@^3.1.9:
+    version "3.2.0"
+    resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.2.0.tgz#06113c6b208f982d68ab5c3cebd199ca93db6941"
+    integrity sha512-k2Nty4PwSnrg9HwrYeeE+EYqViYJoOFwEy9LxL5RIRfoqxAq/uQXNGwpUg2/u4gnKpBbEPa9eRh15KKMe/VHkA==
   
   react-native-screens@^2.15.2:
     version "2.18.1"
@@ -6993,6 +7034,11 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
     integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+  
+  uuid@7.0.2:
+    version "7.0.2"
+    resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.2.tgz#7ff5c203467e91f5e0d85cfcbaaf7d2ebbca9be6"
+    integrity sha512-vy9V/+pKG+5ZTYKf+VcphF5Oc6EFiu3W8Nv3P3zIh0EqVI80ZxOzuPfe9EHjkFNvf8+xuTHVeei4Drydlx4zjw==
   
   uuid@^3.3.2, uuid@^3.4.0:
     version "3.4.0"
