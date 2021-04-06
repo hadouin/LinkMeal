@@ -7,12 +7,14 @@ import {
   Pressable,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { createIconSetFromIcoMoon } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { Comfortaa_600SemiBold } from "@expo-google-fonts/comfortaa";
 import InputComp from "../components/InputComp";
+import CounterComp from "../components/CounterComp";
 
 export default function ShareScreen(props) {
   const Icon = createIconSetFromIcoMoon(
@@ -69,60 +71,63 @@ export default function ShareScreen(props) {
 
   return (
     <View style={styles.modalView}>
-      <View style={styles.container}>
-        <Pressable style={styles.photo} onPress={shootImage}>
-          {!image && (
-            <Icon
-              style={{ margin: 40 }}
-              name="Camera1"
-              size={40}
-              color="#444444"
+      <ScrollView>
+        <View style={styles.container}>
+          <Pressable style={styles.photo} onPress={shootImage}>
+            {!image && (
+              <Icon
+                style={{ margin: 40 }}
+                name="Camera1"
+                size={40}
+                color="#444444"
+              />
+            )}
+            {image && (
+              <Image
+                source={{ width: 150, height: 150, uri: image }}
+                style={{ resizeMode: "cover", borderRadius: 20 }}
+              />
+            )}
+          </Pressable>
+          <View style={styles.titreBox}>
+            <Text style={styles.inputName}>Titre</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeTitle}
+              value={title}
+              placeholder="Nom du plat"
             />
-          )}
-          {image && (
-            <Image
-              source={{ width: 150, height: 150, uri: image }}
-              style={{ resizeMode: "cover", borderRadius: 20 }}
-            />
-          )}
-        </Pressable>
-        <View style={styles.titreBox}>
-          <Text style={styles.inputName}>Titre</Text>
+          </View>
+        </View>
+
+        <View style={styles.inputBox}>
+          <Text style={styles.inputName}>Description</Text>
           <TextInput
             style={styles.input}
-            onChangeText={onChangeTitle}
-            value={title}
-            placeholder="Nom du plat"
+            onChangeText={onChangeDescription}
+            value={description}
+            placeholder="Une description alléchante de votre superbe plat !"
+            multiline={true}
           />
         </View>
-      </View>
-
-      <View style={styles.inputBox}>
-        <Text style={styles.inputName}>Description</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeDescription}
-          value={description}
-          placeholder="Une description alléchante de votre superbe plat !"
-          multiline={true}
-        />
-      </View>
-      <InputComp placeholder={"ok depart"} titre={"Ttest"} />
-      <InputComp placeholder={"ok relai"} titre={"tttest"} />
-      <TouchableOpacity
-        style={styles.connect}
-        onPress={() => console.log("yo")}
-      >
-        <Text
-          style={{
-            color: "#fff",
-            fontFamily: "Comfortaa_700Bold",
-            fontSize: 20,
-          }}
+        <InputComp placeholder={"ok depart"} titre={"Ttest"} />
+        <InputComp placeholder={"ok relai"} titre={"tttest"} />
+        <TouchableOpacity
+          style={styles.connect}
+          onPress={() => console.log("yo")}
         >
-          Poster
-        </Text>
-      </TouchableOpacity>
+          <Text
+            style={{
+              color: "#fff",
+              fontFamily: "Comfortaa_700Bold",
+              fontSize: 20,
+            }}
+          >
+            Poster
+          </Text>
+        </TouchableOpacity>
+        <CounterComp />
+      </ScrollView>
     </View>
   );
 }
@@ -137,6 +142,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     alignItems: "center",
     marginHorizontal: 10,
+    margin: 10,
   },
   container: {
     backgroundColor: "#00ff0050",

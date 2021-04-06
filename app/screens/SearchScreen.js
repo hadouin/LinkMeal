@@ -3,7 +3,11 @@ import TicketFeed from "../components/TicketFeed";
 import { Text, View, StyleSheet } from "react-native";
 
 function SearchScreen(props) {
-  return <TicketFeed {...props} />;
+  return (
+    <View>
+      <Text>okdepart</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

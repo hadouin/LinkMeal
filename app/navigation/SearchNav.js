@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import SearchScreen from "../screens/HomeScreen";
+import SearchScreen from "../screens/SearchScreen";
 import { StyleSheet, View } from "react-native";
 import DetailScreen from "../screens/DetailScreen";
 

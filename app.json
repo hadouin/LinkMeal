@@ -4,7 +4,7 @@
     "slug": "LinkMeal",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./app/assets/images/icon.png",
+    "icon": "./app/assets/images/appGradient.png",
     "splash": {
       "image": "./app/assets/images/splash.png",
       "resizeMode": "contain",
