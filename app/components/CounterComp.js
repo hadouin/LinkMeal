@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import { createIconSetFromIcoMoon } from "@expo/vector-icons";
+import { timing } from "react-native-reanimated";
 
 const Icon = createIconSetFromIcoMoon(
   require("../assets/icomoon/selection.json"),
@@ -14,34 +15,79 @@ const Icon = createIconSetFromIcoMoon(
   "icomoon.ttf"
 );
 
-export default function CounterComp() {
-  const [count, setCount] = useState("100");
-
-  function handleChange(text) {
-    setCount(text.replace(/[^0-9]/g, ""));
+export default class CounterComp extends Component {
+  constructor() {
+    super();
+    this.state = {
+      number: 0,
+      count: "100",
+      timing: 200,
+    };
+    this.timer = null;
+    this.addOne = this.addOne.bind(this);
+    this.delOne = this.delOne.bind(this);
+    this.stopTimer = this.stopTimer.bind(this);
   }
-  function handlePress(count) {
-    let value = count;
-    setCount();
+  addOne() {
+    this.increment(this.state.count);
+    this.setState({
+      timing: this.state.timing - 20,
+    });
+    this.timer = setTimeout(this.addOne, this.state.timing);
   }
 
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity>
-        <Icon name={"Arrow---Down-21"} size={40} color={"white"} />
-      </TouchableOpacity>
-      <TextInput
-        style={styles.input}
-        onChangeText={(text) => handleChange(text)}
-        keyboardType="numeric"
-        placeholder="100"
-        value={count}
-      />
-      <TouchableOpacity onPress={handlePress}>
-        <Icon name={"Arrow---Up-21"} size={40} color={"white"} />
-      </TouchableOpacity>
-    </View>
-  );
+  delOne() {
+    this.decrement(this.state.count);
+    this.setState({
+      timing: this.state.timing - 20,
+    });
+    this.timer = setTimeout(this.delOne, this.state.timing);
+  }
+
+  stopTimer() {
+    this.state.timing = 200;
+    clearTimeout(this.timer);
+  }
+  handleChange(text) {
+    this.setState({
+      mobile: text.replace(/[^0-9]/g, ""),
+    });
+  }
+
+  increment(compte) {
+    var value = parseInt(compte, 10) + 10;
+    let string = value.toString(10);
+    this.setState({
+      count: string,
+    });
+  }
+  decrement(compte) {
+    var value = parseInt(compte, 10) - 10;
+    let string = value.toString(10);
+    this.setState({
+      count: string,
+    });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity onPressIn={this.delOne} onPressOut={this.stopTimer}>
+          <Icon name={"Arrow---Down-21"} size={40} color={"white"} />
+        </TouchableOpacity>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => this.handleChange(text)}
+          keyboardType="numeric"
+          placeholder="100"
+          value={this.state.count}
+        />
+        <TouchableOpacity onPressIn={this.addOne} onPressOut={this.stopTimer}>
+          <Icon name={"Arrow---Up-21"} size={40} color={"white"} />
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
