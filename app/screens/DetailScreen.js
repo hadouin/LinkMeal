@@ -1,9 +1,9 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { createIconSetFromIcoMoon } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
 
 export default function DetailScreen(props) {
+  console.log(props);
   const Icon = createIconSetFromIcoMoon(
     require("../assets/icomoon/selection.json"),
     "IcoMoon",
@@ -53,6 +53,7 @@ export default function DetailScreen(props) {
               size={30}
               backgroundColor="#226CE0"
               borderRadius={100}
+              onPress={() => props.navigation.navigate("Map", { item: item })}
             >
               Navigate
             </Icon.Button>

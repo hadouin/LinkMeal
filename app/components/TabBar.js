@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   wrapper: {
     position: "absolute",
     bottom: 0,
-    height: 60,
+    height: 50,
     width,
     alignItems: "center",
     justifyContent: "center",
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     width,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    height: 60,
+    height: 50,
     alignItems: "center",
     backgroundColor: "white",
   },

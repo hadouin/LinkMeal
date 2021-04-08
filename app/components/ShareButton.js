@@ -22,7 +22,7 @@ export default function ShareButton(props) {
         onPress={() => setModalVisible(true)}
       >
         <View style={styles.container}>
-          <Entypo name="share" size={40} color="white" />
+          <Entypo name="share" size={35} color="white" />
         </View>
       </TouchableOpacity>
 
@@ -47,16 +47,16 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#ff8b4b",
     borderRadius: 80,
-    height: 60,
-    width: 60,
+    height: 50,
+    width: 50,
     justifyContent: "center",
     alignItems: "center",
     paddingRight: 2,
   },
   button: {
     position: "absolute",
-    left: width / 2 - 30,
-    bottom: 35,
+    left: width / 2 - 25,
+    bottom: 30,
   },
   centeredView: {
     flex: 1,
