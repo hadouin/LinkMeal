@@ -27,6 +27,7 @@ export default class CounterComp extends Component {
     this.addOne = this.addOne.bind(this);
     this.delOne = this.delOne.bind(this);
     this.stopTimer = this.stopTimer.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   addOne() {
     this.increment(this.state.count);
@@ -50,7 +51,7 @@ export default class CounterComp extends Component {
   }
   handleChange(text) {
     this.setState({
-      mobile: text.replace(/[^0-9]/g, ""),
+      count: text.replace(/[^0-9]/g, ""),
     });
   }
 
@@ -79,7 +80,7 @@ export default class CounterComp extends Component {
           style={styles.input}
           onChangeText={(text) => this.handleChange(text)}
           keyboardType="numeric"
-          placeholder="100"
+          placeholder="Poids de votre plat"
           value={this.state.count}
         />
         <TouchableOpacity onPressIn={this.addOne} onPressOut={this.stopTimer}>
@@ -97,5 +98,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#ff8b4b",
     borderRadius: 10,
   },
-  input: {},
+  input: { textAlign: "center" },
 });
