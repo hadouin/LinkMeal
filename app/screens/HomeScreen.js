@@ -5,5 +5,5 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 export default function HomeScreen(props) {
-  return <TicketFeed {...props} />;
+  return <TicketFeed {...props} author="John Doe" />;
 }

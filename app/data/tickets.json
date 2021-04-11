@@ -53,16 +53,16 @@
   {
     "_id": "60577bd4e2ef0d1fb33119f3",
     "index": 3,
-    "picture": "http://placehold.it/100x100",
+    "picture": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8aXRhbGlhbiUyMHBpenphfGVufDB8fDB8&w=1000&q=80",
     "title": "Pizza",
     "tags": "bio",
     "price": 2,
     "description": "Sunt do labore id Lorem aliquip. Ullamco duis minim ullamco nostrud aliquip qui ad et laboris adipisicing. Incididunt aute consequat dolore veniam tempor ex amet laborum mollit. Anim voluptate veniam cupidatat officia in aliquip cillum proident aliqua et. Incididunt labore ipsum nisi aliquip consectetur eiusmod id nostrud pariatur. Mollit pariatur eu dolor labore incididunt.\r\n",
     "author": {
-      "name": "Lara Blankenship",
+      "name": "John Doe",
       "address": "289 Merit Court, Blackgum, South Dakota, 4091",
       "about": "Ut cillum pariatur elit nisi officia ipsum anim minim qui labore. Sit amet fugiat est dolore occaecat ullamco id fugiat pariatur sit nulla qui proident consectetur. Eiusmod exercitation aute aute pariatur magna laborum adipisicing non tempor aliquip tempor. Consequat ullamco veniam eiusmod eu commodo. Ea anim labore consequat quis quis laborum.\r\n",
-      "picture": "http://placehold.it/32x32"
+      "picture": "https://randomuser.me/api/portraits/men/75.jpg"
     }
   },
   {
