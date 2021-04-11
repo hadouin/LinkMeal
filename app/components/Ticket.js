@@ -21,10 +21,7 @@ function Ticket(props) {
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Image
             style={{
-              borderBottomLeftRadius: 32,
-              borderBottomRightRadius: 32,
-              borderTopLeftRadius: 32,
-              borderTopRightRadius: 32,
+              borderRadius: 32,
             }}
             source={{ width: 32, height: 32, uri: props.author[1] }}
           />
@@ -58,10 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -90,10 +84,7 @@ const styles = StyleSheet.create({
     flex: 1,
     aspectRatio: 1,
     resizeMode: "cover",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    borderRadius: 10,
   },
   price: {
     flexDirection: "row",

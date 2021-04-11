@@ -1,14 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "../screens/HomeScreen";
-import SearchScreen from "../screens/SearchScreen";
-import ShareScreen from "../screens/ShareScreen";
-import FriendScreen from "../screens/FriendScreen";
 import ProfileNav from "../navigation/ProfileNav";
 import TabBar from "../components/TabBar";
 import HomeNav from "./HomeNav";
 import SearchNav from "./SearchNav";
+import FriendNav from "./FriendNav";
 
 const Tab = createBottomTabNavigator();
 
@@ -30,7 +27,7 @@ export default function TabNav() {
       />
       <Tab.Screen
         name="Friend"
-        component={FriendScreen}
+        component={FriendNav}
         initialParams={{ icon: "User" }}
       />
       <Tab.Screen
