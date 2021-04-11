@@ -1,6 +1,9 @@
 {
   "id": "1234",
-  "name": "User Name",
+  "name": "John Doe",
+  "address": "289 Merit Court, Blackgum, South Dakota, 4091",
+  "about": "Ut cillum pariatur elit nisi officia ipsum anim minim qui labore. Sit amet fugiat est dolore occaecat ullamco id fugiat pariatur sit nulla qui proident consectetur. Eiusmod exercitation aute aute pariatur magna laborum adipisicing non tempor aliquip tempor. Consequat ullamco veniam eiusmod eu commodo. Ea anim labore consequat quis quis laborum.\r\n",
+  "picture": "https://randomuser.me/api/portraits/men/75.jpg",
   "balance": 3,
   "friends": [
     {
