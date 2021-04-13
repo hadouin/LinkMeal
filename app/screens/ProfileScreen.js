@@ -1,10 +1,9 @@
 import React from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import TicketFeed from "../components/TicketFeed";
-import { fetchUserData } from "../data/endpoint";
+import fetchTickets from "../data/endpoint";
 
 function ProfileScreen(props) {
-  user = fetchUserData(1234);
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
@@ -39,7 +38,7 @@ function ProfileScreen(props) {
           Vos Annonces
         </Text>
         <View style={{ flex: 1, alignSelf: "stretch" }}>
-          <TicketFeed {...props} author="self" />
+          <TicketFeed {...props} author="John Doe" />
         </View>
       </View>
     </View>
