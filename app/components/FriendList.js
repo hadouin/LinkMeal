@@ -6,10 +6,11 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import user from "../data/user.json";
 import Friend from "./Friend";
+import { fetchUserData } from "../data/endpoint";
 
 export default function FriendList(props) {
+  let user = fetchUserData("1234");
   return (
     <View>
       <FlatList
