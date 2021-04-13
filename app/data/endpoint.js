@@ -1,22 +1,26 @@
 import ticketsData from "./tickets.json";
 import userData from "./user.json";
 
-function fetchUserData(token) {}
+export function fetchUserData(token) {
+  let filteredData = null;
+  userData.map((item) => {
+    if (item.id == token) {
+      filteredData = item;
+    }
+  });
+  return filteredData;
+}
 
-export default function fetchTickets(author) {
+export default function fetchTickets(userToken) {
   let filteredData = [];
-  if (author === "self") {
-    author = userData.name;
-  }
-  if (author !== "all") {
-    filteredData = [];
+  if (userToken === "all") {
+    filteredData = ticketsData;
+  } else {
     ticketsData.map((item) => {
-      if (item.author.name === author) {
+      if (item.author.id === userToken) {
         filteredData.push(item);
       }
     });
-  } else {
-    filteredData = ticketsData;
   }
   return filteredData;
 }
