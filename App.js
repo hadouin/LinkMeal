@@ -14,7 +14,7 @@ import {
 import LoadScreen from "./app/screens/LoadScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import RootNav from "./app/navigation/RootNav";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-navigation";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -30,8 +30,8 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
+    <SafeAreaView style={{ flex: 1 }}>
       <RootNav />
-    </SafeAreaProvider>
+    </SafeAreaView>
   );
 }
