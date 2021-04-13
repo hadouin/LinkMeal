@@ -15,6 +15,7 @@ This is a dev project for Junior ISEP Academy
 
 ## Tutorial
 After you dowloaded the ``.zip`` file extract it  
-then you can run the app with expo by entering the command :  
-``npm start`` in the root directory.
+then you can run the app with expo by entering the commands :  
+``npm install`` to install all dependencies  
+then ``npm start``
 Enjoy on your favorite device !
