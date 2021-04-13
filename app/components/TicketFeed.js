@@ -1,19 +1,35 @@
 import React, { useState, useEffect, Component } from "react";
-import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  RefreshControl,
+  FlatList,
+} from "react-native";
 import Ticket from "./Ticket";
 import fetchTickets from "../data/endpoint";
 
 export default function TicketFeed(props) {
-  let data = fetchTickets(props.author);
-  console.log(props.author);
-  console.log(data);
+  const [isFetching, setFetching] = useState(false);
+  const [data, setData] = useState(fetchTickets(props.author));
+  function handleRefresh() {
+    setData(fetchTickets("1234"));
+  }
   return (
-    <View style={{ flex: 2 }}>
+    <View>
       <FlatList
         contentContainerStyle={styles.container}
         data={data}
         keyExtractor={(item, index) => item._id}
+        refreshControl={
+          <RefreshControl
+            enabled={true}
+            onRefresh={handleRefresh}
+            refreshing={isFetching}
+          />
+        }
         renderItem={({ item }) => (
           <>
             <TouchableOpacity
