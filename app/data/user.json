@@ -1,19 +1,37 @@
-{
-  "id": "1234",
-  "name": "User Name",
-  "balance": 3,
-  "friends": [
-    {
-      "name": "Hadouin Leroy",
-      "picture": "https://randomuser.me/api/portraits/men/65.jpg"
-    },
-    {
-      "name": "John Doe",
-      "picture": "https://randomuser.me/api/portraits/men/64.jpg"
-    },
-    {
-      "name": "Mary Doe",
-      "picture": "https://randomuser.me/api/portraits/women/65.jpg"
-    }
-  ]
-}
+[
+  {
+    "id": "1234",
+    "name": "John Doe",
+    "address": "ISEP",
+    "latitude": 48.845456830191246,
+    "longitude": 2.3280566848276334,
+    "about": "Ut cillum pariatur elit nisi officia ipsum anim minim qui labore. Sit amet fugiat est dolore occaecat ullamco id fugiat pariatur sit nulla qui proident consectetur. Eiusmod exercitation aute aute pariatur magna laborum adipisicing non tempor aliquip tempor. Consequat ullamco veniam eiusmod eu commodo. Ea anim labore consequat quis quis laborum.\r\n",
+    "picture": "https://randomuser.me/api/portraits/men/75.jpg",
+    "balance": 3,
+    "friends": [
+      {
+        "name": "Hadouin Leroy",
+        "picture": "https://randomuser.me/api/portraits/men/65.jpg"
+      },
+      {
+        "name": "John Doe",
+        "picture": "https://randomuser.me/api/portraits/men/64.jpg"
+      },
+      {
+        "name": "Mary Doe",
+        "picture": "https://randomuser.me/api/portraits/women/65.jpg"
+      }
+    ],
+    "friend": ["1234"]
+  },
+  {
+    "id": "123456",
+    "name": "Lola Haney",
+    "address": "539 Bergen Place, Witmer, Virginia, 121",
+    "longitude": 48.845456830191246,
+    "latitude": 2.3280566848276334,
+    "about": "Cupidatat eu pariatur quis aute dolore exercitation deserunt. Cillum magna id fugiat reprehenderit laboris tempor dolore pariatur eiusmod aliqua exercitation sint. Laborum ad ad occaecat nulla nostrud irure cillum qui sint sunt duis ex in. Ad adipisicing cillum veniam anim Lorem mollit. Nisi est dolore amet aliqua magna ex deserunt incididunt et commodo sint. Reprehenderit minim ex velit veniam aute.\r\n",
+    "picture": "https://randomuser.me/api/portraits/women/76.jpg",
+    "friend": ["1234", "123456"]
+  }
+]

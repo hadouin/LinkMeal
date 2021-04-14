@@ -6,32 +6,42 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import user from "../data/user.json";
 import Friend from "./Friend";
+import { fetchUserData } from "../data/endpoint";
 
 export default function FriendList(props) {
+  let user = fetchUserData("1234");
+  let userList = fetchUserData("all");
+  console.log(user);
+  console.log(userList);
   return (
     <View>
       <FlatList
         contentContainerStyle={styles.container}
-        data={user.friends}
+        data={userList}
         keyExtractor={(item, index) => item.id}
-        renderItem={({ item }) => (
-          <>
-            <TouchableOpacity
-              style={styles.friend}
-              onPress={() =>
-                props.navigation.navigate("FriendInfo", { item: item })
-              }
-            >
-              <Friend
-                navigation={props.navigation}
-                picture={item.picture}
-                name={item.name}
-              />
-            </TouchableOpacity>
-          </>
-        )}
+        renderItem={({ item }) => {
+          console.log(item.id);
+          console.log(user.friend);
+          let isFriend = user.friend.includes(item.id);
+          return (
+            <>
+              <TouchableOpacity
+                style={styles.friend}
+                onPress={() =>
+                  props.navigation.navigate("FriendInfo", { item: item })
+                }
+              >
+                <Friend
+                  navigation={props.navigation}
+                  picture={item.picture}
+                  name={item.name}
+                  isFriend={isFriend}
+                />
+              </TouchableOpacity>
+            </>
+          );
+        }}
       />
     </View>
   );
@@ -39,7 +49,7 @@ export default function FriendList(props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#f002",
+    padding: 5,
   },
   friend: {},
 });

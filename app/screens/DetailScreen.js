@@ -23,10 +23,7 @@ export default function DetailScreen(props) {
         <View style={styles.author}>
           <Image
             style={{
-              borderBottomLeftRadius: 32,
-              borderBottomRightRadius: 32,
-              borderTopLeftRadius: 32,
-              borderTopRightRadius: 32,
+              borderRadius: 32,
             }}
             source={{ height: 32, width: 32, uri: item.author.picture }}
           />

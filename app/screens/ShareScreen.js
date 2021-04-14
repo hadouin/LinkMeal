@@ -112,6 +112,18 @@ export default function ShareScreen(props) {
         </View>
         <InputComp placeholder={"ok depart"} titre={"Ttest"} />
         <InputComp placeholder={"ok relai"} titre={"tttest"} />
+        <Text
+          style={{
+            paddingLeft: 5,
+            margin: 2,
+            fontFamily: "Montserrat_400Regular",
+          }}
+        >
+          Weight
+        </Text>
+        <View style={{ width: "50%" }}>
+          <CounterComp />
+        </View>
         <TouchableOpacity
           style={styles.connect}
           onPress={() => console.log("yo")}
@@ -126,7 +138,6 @@ export default function ShareScreen(props) {
             Poster
           </Text>
         </TouchableOpacity>
-        <CounterComp />
       </ScrollView>
     </View>
   );
@@ -145,7 +156,6 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   container: {
-    backgroundColor: "#00ff0050",
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "flex-start",
@@ -189,12 +199,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   inputName: {
-    backgroundColor: "#ff000050",
     paddingLeft: 5,
     fontFamily: "Montserrat_400Regular",
   },
   titreBox: {
-    backgroundColor: "#0000ff50",
     flex: 1,
     margin: 10,
   },

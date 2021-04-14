@@ -23,9 +23,9 @@ function Ticket(props) {
             style={{
               borderRadius: 32,
             }}
-            source={{ width: 32, height: 32, uri: props.author[1] }}
+            source={{ width: 32, height: 32, uri: props.author.picture }}
           />
-          <Text style={{ margin: 5 }}>{props.author[0]}</Text>
+          <Text style={{ margin: 5 }}>{props.author.name}</Text>
         </View>
         <Text>{props.tags}</Text>
         <View style={styles.price}>

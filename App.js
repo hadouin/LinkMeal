@@ -14,9 +14,14 @@ import {
 import LoadScreen from "./app/screens/LoadScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import RootNav from "./app/navigation/RootNav";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-navigation";
+import { LogBox } from "react-native";
 
 export default function App() {
+  LogBox.ignoreLogs([
+    "Your project is accessing the following APIs from a deprecated global rather than a module import: Constants (expo-constants).",
+  ]);
+
   const [fontsLoaded] = useFonts({
     IcoMoon: require("./app/assets/icomoon/icomoon.ttf"),
     Comfortaa_400Regular,
@@ -30,8 +35,8 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
+    <SafeAreaView style={{ flex: 1 }}>
       <RootNav />
-    </SafeAreaProvider>
+    </SafeAreaView>
   );
 }
