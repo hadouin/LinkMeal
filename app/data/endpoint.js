@@ -30,10 +30,15 @@ export default function fetchTickets(userToken) {
 }
 
 export function friendUpdate(action, token, userToken) {
+  let newData = [];
   if (action == "add") {
     userData.map((item) => {
       if (item.id == userToken) {
+        if (!item.friend.includes(token)) {
+          item.friend.push(token);
+        }
       }
+      newData.push(item);
     });
   }
 }
