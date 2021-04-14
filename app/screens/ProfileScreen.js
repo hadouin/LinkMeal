@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import TicketFeed from "../components/TicketFeed";
 import fetchTickets from "../data/endpoint";
 
@@ -19,13 +19,16 @@ function ProfileScreen(props) {
           />
           <Text>Username</Text>
         </View>
-        <View style={styles.balance}>
+        <TouchableOpacity
+          style={styles.balance}
+          onPress={() => props.navigation.navigate("Wallet")}
+        >
           <Text style={{ textAlign: "right" }}>#balance</Text>
           <Image
             style={styles.bitmeal}
             source={require("../assets/images/bitmeal.png")}
           />
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={styles.tickets}>
         <Text
@@ -38,7 +41,7 @@ function ProfileScreen(props) {
           Vos Annonces
         </Text>
         <View style={{ flex: 1, alignSelf: "stretch" }}>
-          <TicketFeed {...props} author="John Doe" />
+          <TicketFeed {...props} author="1234" />
         </View>
       </View>
     </View>
@@ -48,29 +51,37 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 5,
+    paddingBottom: 55,
   },
   profile: {
     padding: 10,
     flexDirection: "row",
-    backgroundColor: "#f005",
+    backgroundColor: "#fff",
     marginVertical: 10,
     borderRadius: 20,
     height: "20%",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   user: {
-    backgroundColor: "#0f05",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
   pp: {
-    borderRadius: 500,
+    borderRadius: 20,
     height: "80%",
     aspectRatio: 1,
     resizeMode: "cover",
   },
   balance: {
-    backgroundColor: "#ff05",
     justifyContent: "center",
     alignItems: "center",
     flex: 1,

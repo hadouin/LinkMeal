@@ -93,6 +93,7 @@ export default class CounterComp extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingHorizontal: 10,
     justifyContent: "space-around",
     flexDirection: "row",
     backgroundColor: "#ff8b4b",

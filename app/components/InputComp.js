@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   inputName: {
-    backgroundColor: "#ff000050",
     paddingLeft: 5,
     fontFamily: "Montserrat_400Regular",
   },
