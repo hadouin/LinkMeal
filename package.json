@@ -22,6 +22,7 @@
     "expo-image-picker": "^10.0.0",
     "expo-status-bar": "~1.0.3",
     "firebase": "^8.3.0",
+    "fs": "0.0.1-security",
     "miragejs": "^0.1.41",
     "react": "16.13.1",
     "react-dom": "16.13.1",
