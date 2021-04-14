@@ -2,12 +2,16 @@ import ticketsData from "./tickets.json";
 import userData from "./user.json";
 
 export function fetchUserData(token) {
-  let filteredData = null;
-  userData.map((item) => {
-    if (item.id == token) {
-      filteredData = item;
-    }
-  });
+  let filteredData = [];
+  if (token == "all") {
+    filteredData = userData;
+  } else {
+    userData.map((item) => {
+      if (item.id == token) {
+        filteredData = item;
+      }
+    });
+  }
   return filteredData;
 }
 
@@ -23,4 +27,13 @@ export default function fetchTickets(userToken) {
     });
   }
   return filteredData;
+}
+
+export function friendUpdate(action, token, userToken) {
+  if (action == "add") {
+    userData.map((item) => {
+      if (item.id == userToken) {
+      }
+    });
+  }
 }

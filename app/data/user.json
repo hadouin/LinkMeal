@@ -21,6 +21,17 @@
         "name": "Mary Doe",
         "picture": "https://randomuser.me/api/portraits/women/65.jpg"
       }
-    ]
+    ],
+    "friend": ["1234"]
+  },
+  {
+    "id": "123456",
+    "name": "Lola Haney",
+    "address": "539 Bergen Place, Witmer, Virginia, 121",
+    "longitude": 48.845456830191246,
+    "latitude": 2.3280566848276334,
+    "about": "Cupidatat eu pariatur quis aute dolore exercitation deserunt. Cillum magna id fugiat reprehenderit laboris tempor dolore pariatur eiusmod aliqua exercitation sint. Laborum ad ad occaecat nulla nostrud irure cillum qui sint sunt duis ex in. Ad adipisicing cillum veniam anim Lorem mollit. Nisi est dolore amet aliqua magna ex deserunt incididunt et commodo sint. Reprehenderit minim ex velit veniam aute.\r\n",
+    "picture": "https://randomuser.me/api/portraits/women/76.jpg",
+    "friend": ["1234", "123456"]
   }
 ]
