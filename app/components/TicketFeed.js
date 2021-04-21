@@ -1,58 +1,62 @@
-import React, { useState, useEffect, Component } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  RefreshControl,
-  FlatList,
-} from "react-native";
+import React, { Component } from "react";
+import { View, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import Ticket from "./Ticket";
-import fetchTickets from "../data/endpoint";
+import getTickets from "../data/index";
+export default class TicketFeed extends Component {
+  constructor(props) {
+    super(props);
 
-export default function TicketFeed(props) {
-  const [isFetching, setFetching] = useState(false);
-  const [data, setData] = useState(fetchTickets(props.author));
-  function handleRefresh() {
-    setData(fetchTickets("1234"));
+    this.state = {
+      loading: false,
+      data: [],
+      error: null,
+      query: "",
+      fullData: [],
+    };
   }
-  return (
-    <View>
-      <FlatList
-        contentContainerStyle={styles.container}
-        data={data}
-        keyExtractor={(item, index) => item._id}
-        refreshControl={
-          <RefreshControl
-            enabled={true}
-            onRefresh={handleRefresh}
-            refreshing={isFetching}
-          />
-        }
-        renderItem={({ item }) => (
-          <>
-            <TouchableOpacity
-              style={styles.ticket}
-              onPress={() =>
-                props.navigation.navigate("Details", { item: item })
-              }
-            >
-              <Ticket
-                navigation={props.navigation}
-                picture={item.picture}
-                title={item.title}
-                author={item.author}
-                description={item.description}
-                tags={item.tags}
-                price={item.price}
-              />
-            </TouchableOpacity>
-          </>
-        )}
-      />
-    </View>
-  );
+
+  componentDidMount() {
+    this.makeRemoteRequest();
+  }
+
+  makeRemoteRequest = () => {
+    this.setState({ loading: true });
+
+    getTickets(20, this.state.query)
+      .then((tickets) => {
+        this.setState({
+          loading: false,
+          data: tickets,
+          fullData: tickets,
+        });
+      })
+      .catch((error) => {
+        this.setState({ error, loading: false });
+      });
+  };
+  render() {
+    return (
+      <View>
+        <FlatList
+          contentContainerStyle={styles.container}
+          data={this.state.data}
+          keyExtractor={(item, index) => item._id}
+          renderItem={({ item }) => (
+            <>
+              <TouchableOpacity
+                style={styles.ticket}
+                onPress={() =>
+                  this.props.navigation.navigate("Details", { item: item })
+                }
+              >
+                <Ticket navigation={this.props.navigation} {...item} />
+              </TouchableOpacity>
+            </>
+          )}
+        />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

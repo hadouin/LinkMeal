@@ -3,7 +3,6 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { createIconSetFromIcoMoon } from "@expo/vector-icons";
 
 export default function DetailScreen(props) {
-  console.log(props);
   const Icon = createIconSetFromIcoMoon(
     require("../assets/icomoon/selection.json"),
     "IcoMoon",
