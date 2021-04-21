@@ -11,10 +11,14 @@ export default function FriendInfoScreen(props) {
             source={{
               width: 30,
               height: 30,
-              uri: props.route.params.item.picture,
+              uri: props.route.params.item.picture.large,
             }}
           />
-          <Text>{props.route.params.item.name}</Text>
+          <Text>
+            {props.route.params.item.name.first +
+              " " +
+              props.route.params.item.name.last}
+          </Text>
         </View>
       </View>
     </View>
