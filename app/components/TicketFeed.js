@@ -1,8 +1,18 @@
 import React, { Component } from "react";
-import { View, StyleSheet, TouchableOpacity, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import { List, ListItem, SearchBar } from "react-native-elements";
+import _ from "lodash";
 import Ticket from "./Ticket";
-import getTickets from "../data/index";
-export default class TicketFeed extends Component {
+import { getTickets, contains } from "../data/index";
+
+class TicketFeed extends Component {
   constructor(props) {
     super(props);
 
@@ -24,6 +34,7 @@ export default class TicketFeed extends Component {
 
     getTickets(20, this.state.query)
       .then((tickets) => {
+        console.log("finished load");
         this.setState({
           loading: false,
           data: tickets,
@@ -34,14 +45,55 @@ export default class TicketFeed extends Component {
         this.setState({ error, loading: false });
       });
   };
-  render() {
+
+  handleSearch = (text) => {
+    const formatQuery = text.toLowerCase();
+    const data = _.filter(this.state.fullData, (ticket) => {
+      return contains(ticket, formatQuery);
+    });
+    this.setState({ query: formatQuery, data }, () => this.makeRemoteRequest());
+  };
+
+  renderHeader = () => {
+    if (this.props.showSearch) {
+      return (
+        <SearchBar
+          placeholder="Type Here..."
+          lightTheme
+          round
+          onChangeText={this.handleSearch}
+          value={this.state.query}
+        />
+      );
+    }
+    return <></>;
+  };
+
+  renderFooter = () => {
+    if (!this.state.loading) return null;
+
     return (
-      <View>
-        <FlatList
-          contentContainerStyle={styles.container}
-          data={this.state.data}
-          keyExtractor={(item, index) => item._id}
-          renderItem={({ item }) => (
+      <View
+        style={{
+          paddingVertical: 20,
+          borderTopWidth: 1,
+          borderColor: "#CED0CE",
+        }}
+      >
+        <ActivityIndicator animating size="large" />
+      </View>
+    );
+  };
+
+  render() {
+    console.log("rendering");
+    console.log(this.state);
+    return (
+      <FlatList
+        contentContainerStyle={styles.list}
+        data={this.state.data}
+        renderItem={({ item }) => {
+          return (
             <>
               <TouchableOpacity
                 style={styles.ticket}
@@ -49,38 +101,26 @@ export default class TicketFeed extends Component {
                   this.props.navigation.navigate("Details", { item: item })
                 }
               >
-                <Ticket navigation={this.props.navigation} {...item} />
+                <Ticket data={item} />
               </TouchableOpacity>
             </>
-          )}
-        />
-      </View>
+          );
+        }}
+        keyExtractor={(item) => item._id}
+        ListHeaderComponent={this.renderHeader}
+      />
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
-    alignItems: "stretch",
-    flexDirection: "column",
-    padding: 10,
-    paddingBottom: 100,
+    padding: 5,
   },
   ticket: {
-    flexWrap: "wrap",
-    alignItems: "center",
-    flexDirection: "column",
-    alignContent: "center",
-    padding: 5,
-    marginVertical: 5,
+    margin: 5,
+    marginHorizontal: 10,
   },
-  name: {
-    flexWrap: "wrap",
-    fontSize: 15,
-  },
-  image: {
-    height: 180,
-    aspectRatio: 1,
-    borderRadius: 20,
-  },
+  list: { paddingBottom: 80 },
 });
+
+export default TicketFeed;

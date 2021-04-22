@@ -66,6 +66,6 @@ export default class FriendScreen extends Component {
   };
 
   render() {
-    return <TicketFeed {...this.props} data={getTickets()} />;
+    return <TicketFeed {...this.props} data={getTickets()} showSearch />;
   }
 }
