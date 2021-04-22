@@ -10,7 +10,7 @@ import {
 import { List, ListItem, SearchBar } from "react-native-elements";
 import _ from "lodash";
 import Ticket from "./Ticket";
-import { getTickets, contains } from "../data/index";
+import { getTickets, contains, fullContains, valueIn } from "../data/index";
 
 class TicketFeed extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class TicketFeed extends Component {
   handleSearch = (text) => {
     const formatQuery = text.toLowerCase();
     const data = _.filter(this.state.fullData, (ticket) => {
-      return contains(ticket, formatQuery);
+      return valueIn(ticket, formatQuery);
     });
     this.setState({ query: formatQuery, data }, () => this.makeRemoteRequest());
   };
@@ -87,7 +87,6 @@ class TicketFeed extends Component {
 
   render() {
     console.log("rendering");
-    console.log(this.state);
     return (
       <FlatList
         contentContainerStyle={styles.list}

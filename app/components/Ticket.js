@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
 function Ticket(props) {
-  console.log(props.data);
   return (
     <View style={styles.container}>
       <Image

@@ -4,7 +4,7 @@ export default [
     index: 0,
     picture:
       "https://images.unsplash.com/photo-1456014673271-90b7fddf2eea?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-    title: "Quiche",
+    title: "quiche",
     tags: "vegan",
     price: 2,
     description: "Did you eat cake ?",
@@ -84,7 +84,7 @@ export default [
     _id: "60577bd42e8ccfb9a4a2e861",
     index: 4,
     picture: "http://placehold.it/100x100",
-    title: "Quiche",
+    title: "quiche",
     tags: "gFree",
     price: 2,
     description:
@@ -300,7 +300,7 @@ export default [
     _id: "60577bd4235d8d487e81b4a3",
     index: 16,
     picture: "http://placehold.it/100x100",
-    title: "Quiche",
+    title: "quiche",
     tags: "bio",
     price: 3,
     description:
@@ -354,7 +354,7 @@ export default [
     _id: "60577bd43759862548452dad",
     index: 19,
     picture: "http://placehold.it/100x100",
-    title: "Quiche",
+    title: "quiche",
     tags: "gFree",
     price: 3,
     description:
