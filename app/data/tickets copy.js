@@ -1,4 +1,4 @@
-[
+export default [
   {
     _id: "60577bd47a7317aa24a7fbd7",
     index: 0,
