@@ -7,8 +7,8 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;

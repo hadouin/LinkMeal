@@ -6,7 +6,6 @@ import RegisterScreen from "../screens/RegisterScreen";
 const Auth = createStackNavigator();
 
 export default function AuthNav(props) {
-  console.log(props.route);
   return (
     <Auth.Navigator
       initialRouteName="Login"

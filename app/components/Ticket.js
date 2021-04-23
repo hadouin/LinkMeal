@@ -10,12 +10,12 @@ function Ticket(props) {
         source={{
           height: 200,
           width: 200,
-          uri: props.picture,
+          uri: props.data.picture,
         }}
       />
       <View style={styles.details}>
         <Text style={{ fontFamily: "Comfortaa_700Bold", fontSize: 30 }}>
-          {props.title}
+          {props.data.title}
         </Text>
         <View style={styles.bar} />
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -23,14 +23,14 @@ function Ticket(props) {
             style={{
               borderRadius: 32,
             }}
-            source={{ width: 32, height: 32, uri: props.author.picture }}
+            source={{ width: 32, height: 32, uri: props.data.author.picture }}
           />
-          <Text style={{ margin: 5 }}>{props.author.name}</Text>
+          <Text style={{ margin: 5 }}>{props.data.author.name}</Text>
         </View>
-        <Text>{props.tags}</Text>
+        <Text>{props.data.tags}</Text>
         <View style={styles.price}>
           <Text style={{ fontSize: 20, fontFamily: "Comfortaa_700Bold" }}>
-            {props.price}
+            {props.data.price}
           </Text>
           <Image
             style={{

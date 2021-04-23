@@ -1,21 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import { List, ListItem, SearchBar } from "react-native-elements";
 import TicketFeed from "../components/TicketFeed";
-import { Text, View, StyleSheet } from "react-native";
+import _ from "lodash";
+import { getUsers, contains, getTickets } from "../data/index";
 
-function SearchScreen(props) {
-  return (
-    <View>
-      <Text>okdepart</Text>
-    </View>
-  );
+export default class FriendScreen extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <TicketFeed {...this.props} showSearch />;
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
-
-export default SearchScreen;

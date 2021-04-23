@@ -1,82 +1,125 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { Component } from "react";
 import {
-  Text,
   View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  RefreshControl,
+  Text,
   FlatList,
+  ActivityIndicator,
+  TouchableOpacity,
+  StyleSheet,
 } from "react-native";
+import { List, ListItem, SearchBar } from "react-native-elements";
+import _ from "lodash";
 import Ticket from "./Ticket";
-import fetchTickets from "../data/endpoint";
+import { getTickets, contains, fullContains, valueIn } from "../data/index";
 
-export default function TicketFeed(props) {
-  const [isFetching, setFetching] = useState(false);
-  const [data, setData] = useState(fetchTickets(props.author));
-  function handleRefresh() {
-    setData(fetchTickets("1234"));
+class TicketFeed extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+      data: [],
+      error: null,
+      query: "",
+      fullData: [],
+    };
   }
-  return (
-    <View>
-      <FlatList
-        contentContainerStyle={styles.container}
-        data={data}
-        keyExtractor={(item, index) => item._id}
-        refreshControl={
-          <RefreshControl
-            enabled={true}
-            onRefresh={handleRefresh}
-            refreshing={isFetching}
-          />
-        }
-        renderItem={({ item }) => (
-          <>
-            <TouchableOpacity
-              style={styles.ticket}
-              onPress={() =>
-                props.navigation.navigate("Details", { item: item })
-              }
-            >
-              <Ticket
-                navigation={props.navigation}
-                picture={item.picture}
-                title={item.title}
-                author={item.author}
-                description={item.description}
-                tags={item.tags}
-                price={item.price}
-              />
-            </TouchableOpacity>
-          </>
-        )}
-      />
-    </View>
-  );
-}
 
+  componentDidMount() {
+    this.makeRemoteRequest();
+  }
+
+  makeRemoteRequest = () => {
+    this.setState({ loading: true });
+
+    getTickets(20, this.state.query)
+      .then((tickets) => {
+        console.log("finished load");
+        this.setState({
+          loading: false,
+          data: tickets,
+          fullData: tickets,
+        });
+      })
+      .catch((error) => {
+        this.setState({ error, loading: false });
+      });
+  };
+
+  handleSearch = (text) => {
+    const formatQuery = text.toLowerCase();
+    const data = _.filter(this.state.fullData, (ticket) => {
+      return valueIn(ticket, formatQuery);
+    });
+    this.setState({ query: formatQuery, data }, () => this.makeRemoteRequest());
+  };
+
+  renderHeader = () => {
+    if (this.props.showSearch) {
+      return (
+        <SearchBar
+          placeholder="Type Here..."
+          lightTheme
+          round
+          onChangeText={this.handleSearch}
+          value={this.state.query}
+        />
+      );
+    }
+    return <></>;
+  };
+
+  renderFooter = () => {
+    if (!this.state.loading) return null;
+
+    return (
+      <View
+        style={{
+          paddingVertical: 20,
+          borderTopWidth: 1,
+          borderColor: "#CED0CE",
+        }}
+      >
+        <ActivityIndicator animating size="large" />
+      </View>
+    );
+  };
+
+  render() {
+    console.log("rendering");
+    return (
+      <FlatList
+        contentContainerStyle={styles.list}
+        data={this.state.data}
+        renderItem={({ item }) => {
+          return (
+            <>
+              <TouchableOpacity
+                style={styles.ticket}
+                onPress={() =>
+                  this.props.navigation.navigate("Details", { item: item })
+                }
+              >
+                <Ticket data={item} />
+              </TouchableOpacity>
+            </>
+          );
+        }}
+        keyExtractor={(item) => item._id}
+        ListHeaderComponent={this.renderHeader}
+      />
+    );
+  }
+}
 const styles = StyleSheet.create({
   container: {
-    alignItems: "stretch",
-    flexDirection: "column",
-    padding: 10,
-    paddingBottom: 100,
+    padding: 5,
   },
   ticket: {
-    flexWrap: "wrap",
-    alignItems: "center",
-    flexDirection: "column",
-    alignContent: "center",
-    padding: 5,
-    marginVertical: 5,
+    margin: 5,
+    marginHorizontal: 10,
   },
-  name: {
-    flexWrap: "wrap",
-    fontSize: 15,
-  },
-  image: {
-    height: 180,
-    aspectRatio: 1,
-    borderRadius: 20,
-  },
+  list: { paddingBottom: 80 },
 });
+
+export default TicketFeed;

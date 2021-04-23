@@ -12,7 +12,6 @@ import {
   Montserrat_800ExtraBold,
 } from "@expo-google-fonts/montserrat";
 import LoadScreen from "./app/screens/LoadScreen";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import RootNav from "./app/navigation/RootNav";
 import { SafeAreaView } from "react-navigation";
 import { LogBox } from "react-native";

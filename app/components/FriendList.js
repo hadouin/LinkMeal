@@ -46,7 +46,6 @@ class FriendList extends Component {
   };
 
   handleSearch = (text) => {
-    console.log("text", text);
     const formatQuery = text.toLowerCase();
     const data = _.filter(this.state.fullData, (user) => {
       return contains(user, formatQuery);
