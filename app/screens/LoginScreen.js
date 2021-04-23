@@ -64,8 +64,15 @@ export default function LoginScreen(props) {
             Se connecter
           </Text>
         </TouchableOpacity>
-        <Text style={{ textAlign: "center", fontSize: 10 }}>
-          Si vous avez oublié votre mot de passe veuillez cliquer ici
+        <Text
+          style={{ textAlign: "center", fontSize: 10 }}
+          onPress={() => props.navigation.navigate("Forgot")}
+        >
+          <Text>Si vous avez oublié votre mot de passe veuillez</Text>{" "}
+          <Text style={{ color: "#ff8b4b", textDecorationLine: "underline" }}>
+            {" "}
+            cliquer ici
+          </Text>
         </Text>
       </View>
       <TouchableOpacity
@@ -125,6 +132,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   register: {
+    width: windowWidth * (3 / 4),
     alignItems: "center",
     justifyContent: "center",
     paddingBottom: 10,

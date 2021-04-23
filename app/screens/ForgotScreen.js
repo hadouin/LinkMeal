@@ -8,31 +8,39 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-export default function LoginScreen(props) {
+export default function ForgotScreen(props) {
   const [number, onChangeEmail] = React.useState(null);
-  const [password, onChangePassword] = React.useState(null);
+
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Email sent",
+      "Nous avons envoyé un mail de récupération à l'adresse electronique renseignée"
+    );
+
   return (
     <View style={styles.container}>
       <StatusBar hidden />
       <View style={styles.circle} />
       <Image
         style={styles.logo}
-        source={require("../assets/images/LogoCenterOrangeTight.png")}
+        source={require("../assets/images/LogoCenterWhiteTight.png")}
       />
       <View style={styles.connexion}>
         <Text
           style={{
             fontFamily: "Comfortaa_700Bold",
-            fontSize: 28,
+            fontSize: 35,
             color: "#444444",
+            textAlign: "center",
           }}
         >
-          Créer un compte
+          Mot de Passe oublié
         </Text>
         <View style={{ width: "100%" }}>
           <Text style={styles.inputNames}>Adresse Email</Text>
@@ -42,53 +50,49 @@ export default function LoginScreen(props) {
             value={number}
             placeholder="link@meal.fr"
           />
-          <Text style={styles.inputNames}>Mot de passe</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={onChangePassword}
-            value={password}
-            placeholder="Password"
-          />
-          <Text style={styles.inputNames}>Confirmer le mot de passe</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={onChangeEmail}
-            value={number}
-            placeholder="link@meal.fr"
-          />
         </View>
-        <TouchableOpacity
-          style={styles.connect}
-          onPress={() => props.route.params.setIsLoggedIn(true)}
-        >
+        <TouchableOpacity style={styles.connect} onPress={createTwoButtonAlert}>
           <Text
             style={{
               color: "#fff",
               fontFamily: "Comfortaa_700Bold",
-              fontSize: 18,
+              fontSize: 20,
             }}
           >
-            Créer mon compte
+            Envoyer
           </Text>
         </TouchableOpacity>
       </View>
+      <TouchableOpacity
+        style={styles.register}
+        onPress={() => props.navigation.navigate("Login")}
+      >
+        <Text
+          style={{
+            color: "#ff8b4b",
+            fontFamily: "Comfortaa_700Bold",
+            fontSize: 20,
+          }}
+        >
+          Retour
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ff8b4b",
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "center",
   },
   circle: {
     width: 900,
     height: 900,
     borderRadius: 900 / 2,
-    backgroundColor: "#fff",
+    backgroundColor: "#ff8b4b",
     position: "absolute",
     top: -900 / 2 - 25,
     left: windowWidth / 2 - 900 / 2,
@@ -96,8 +100,6 @@ const styles = StyleSheet.create({
   logo: {
     resizeMode: "contain",
     height: "20%",
-    margin: 20,
-    marginTop: "10%",
   },
   connexion: {
     alignItems: "center",

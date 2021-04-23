@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
+import ForgotScreen from "../screens/ForgotScreen";
 
 const Auth = createStackNavigator();
 
@@ -25,6 +26,7 @@ export default function AuthNav(props) {
           setIsLoggedIn: props.route.params.setIsLoggedIn,
         }}
       />
+      <Auth.Screen name="Forgot" component={ForgotScreen} />
     </Auth.Navigator>
   );
 }
