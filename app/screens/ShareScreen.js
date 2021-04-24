@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component, useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,12 +9,11 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
 import { createIconSetFromIcoMoon } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
-import { Comfortaa_600SemiBold } from "@expo-google-fonts/comfortaa";
-import InputComp from "../components/InputComp";
 import CounterComp from "../components/CounterComp";
+import { CheckBox } from "react-native-elements";
+import GlobalState from "../contexts/GlobalState";
 
 export default function ShareScreen(props) {
   const Icon = createIconSetFromIcoMoon(
@@ -23,7 +22,17 @@ export default function ShareScreen(props) {
     "icomoon.ttf"
   );
 
+  const [Gstate, setGstate] = useContext(GlobalState);
   const [image, setImage] = useState(null);
+  const [title, onChangeTitle] = useState(null);
+  const [description, onChangeDescription] = useState(null);
+  const [weight, setWeight] = useState(100);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [bio, setBio] = useState(false);
+  const [gFree, setgFree] = useState(false);
+  const [vegan, setVegan] = useState(false);
+  const [price, setPrice] = useState(1);
 
   useEffect(() => {
     (async () => {
@@ -65,10 +74,40 @@ export default function ShareScreen(props) {
       setImage(result.uri);
     }
   };
-
-  const [title, onChangeTitle] = React.useState(null);
-  const [description, onChangeDescription] = React.useState(null);
-
+  const handlePosting = () => {
+    const tags = [];
+    if (vegan) {
+      tags.push("vegan");
+    }
+    if (bio) {
+      tags.push("bio");
+    }
+    if (gFree) {
+      tags.push("gFree");
+    }
+    const dataObj = {
+      _id: Math.floor(Math.random() * 1000000),
+      price: price,
+      picture: image,
+      title: title,
+      description: description,
+      startDate: startDate,
+      weight: weight,
+      tags: tags,
+      author: {
+        id: "1234",
+        name: "John Doe",
+        address: "ISEP",
+        latitude: 48.845456830191246,
+        longitude: 2.3280566848276334,
+        about:
+          "Commodo sint aute id proident reprehenderit. Aute aliquip sint fugiat qui qui nostrud Lorem tempor qui quis. Enim consectetur eiusmod aliquip ea.\r\n",
+        picture: "https://randomuser.me/api/portraits/men/75.jpg",
+      },
+    };
+    Gstate.tickets.unshift(dataObj);
+    console.log(Gstate.tickets[0]);
+  };
   return (
     <View style={styles.modalView}>
       <ScrollView>
@@ -97,9 +136,14 @@ export default function ShareScreen(props) {
               value={title}
               placeholder="Nom du plat"
             />
+            <CounterComp
+              title={"Prix"}
+              defaultVal={String(price)}
+              increment={1}
+              changeHandler={setPrice}
+            />
           </View>
         </View>
-
         <View style={styles.inputBox}>
           <Text style={styles.inputName}>Description</Text>
           <TextInput
@@ -110,24 +154,89 @@ export default function ShareScreen(props) {
             multiline={true}
           />
         </View>
-        <InputComp placeholder={"ok depart"} titre={"Ttest"} />
-        <InputComp placeholder={"ok relai"} titre={"tttest"} />
-        <Text
-          style={{
-            paddingLeft: 5,
-            margin: 2,
-            fontFamily: "Montserrat_400Regular",
-          }}
-        >
-          Weight
-        </Text>
-        <View style={{ width: "50%" }}>
-          <CounterComp />
+        <CounterComp
+          title={"Poids (grammes)"}
+          defaultVal={String(weight)}
+          increment={10}
+          changeHandler={setWeight}
+        />
+        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+          <CheckBox
+            containerStyle={{}}
+            title="Vegan"
+            checkedIcon={
+              <Image
+                source={{
+                  width: 30,
+                  height: 30,
+                  uri:
+                    "https://image.flaticon.com/icons/png/512/1970/1970959.png",
+                }}
+              />
+            }
+            uncheckedIcon={
+              <Image
+                source={{
+                  width: 30,
+                  height: 30,
+                  uri:
+                    "https://image.flaticon.com/icons/png/512/1970/1970951.png",
+                }}
+              />
+            }
+            checked={vegan}
+            onPress={() => {
+              setVegan(!vegan);
+            }}
+          />
+          <CheckBox
+            title="Bio"
+            checkedIcon={
+              <Image
+                source={{
+                  width: 30,
+                  height: 30,
+                  uri:
+                    "https://image.flaticon.com/icons/png/512/525/525916.png",
+                }}
+              />
+            }
+            uncheckedIcon={
+              <Image
+                source={{
+                  width: 30,
+                  height: 30,
+                  uri:
+                    "https://image.flaticon.com/icons/png/512/525/525988.png",
+                }}
+              />
+            }
+            checked={bio}
+            onPress={() => {
+              setBio(!bio);
+            }}
+          />
+          <CheckBox
+            title="SansGluten"
+            checkedIcon={
+              <Image
+                style={{ height: 30, width: 30 }}
+                source={require("../assets/images/Tags/gFreeOn.png")}
+              />
+            }
+            uncheckedIcon={
+              <Image
+                style={{ height: 30, width: 30 }}
+                source={require("../assets/images/Tags/gFreeOff.png")}
+              />
+            }
+            checked={gFree}
+            onPress={() => {
+              setgFree(!gFree);
+            }}
+          />
         </View>
-        <TouchableOpacity
-          style={styles.connect}
-          onPress={() => console.log("yo")}
-        >
+        <TouchableOpacity style={styles.connect} onPress={handlePosting} s>
           <Text
             style={{
               color: "#fff",
@@ -135,7 +244,7 @@ export default function ShareScreen(props) {
               fontSize: 20,
             }}
           >
-            Poster
+            Publier
           </Text>
         </TouchableOpacity>
       </ScrollView>
@@ -160,6 +269,20 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "flex-start",
     alignSelf: "stretch",
+  },
+  input: {
+    width: "100%",
+    backgroundColor: "#eee",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 10,
+  },
+  inputName: {
+    paddingLeft: 5,
+    fontFamily: "Montserrat_400Regular",
+  },
+  inputBox: {
+    marginVertical: 10,
   },
   modalView: {
     flex: 1,
@@ -191,22 +314,12 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  input: {
-    width: "100%",
-    backgroundColor: "#eee",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 10,
-  },
-  inputName: {
-    paddingLeft: 5,
-    fontFamily: "Montserrat_400Regular",
-  },
   titreBox: {
     flex: 1,
     margin: 10,
   },
-  inputBox: {
-    marginVertical: 5,
+
+  pickStartTime: {
+    margin: 10,
   },
 });

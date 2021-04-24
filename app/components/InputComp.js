@@ -4,13 +4,16 @@ import { Comfortaa_600SemiBold } from "@expo-google-fonts/comfortaa";
 
 export default function InputComp(props) {
   const [value, onChangeValue] = useState(null);
-
+  const handleChange = (text) => {
+    onChangeValue(text);
+    props.changeHandler(text);
+  };
   return (
     <View style={styles.inputBox}>
       <Text style={styles.inputName}>{props.titre}</Text>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeValue}
+        onChangeText={(text) => handleChange(text)}
         value={value}
         placeholder={props.placeholder}
       />
@@ -20,7 +23,6 @@ export default function InputComp(props) {
 
 const styles = StyleSheet.create({
   input: {
-    width: "100%",
     backgroundColor: "#eee",
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -31,6 +33,7 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat_400Regular",
   },
   inputBox: {
-    marginVertical: 5,
+    margin: 5,
+    flex: 1,
   },
 });

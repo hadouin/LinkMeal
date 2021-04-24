@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   useFonts,
   Comfortaa_400Regular,
@@ -15,8 +15,11 @@ import LoadScreen from "./app/screens/LoadScreen";
 import RootNav from "./app/navigation/RootNav";
 import { SafeAreaView } from "react-navigation";
 import { LogBox } from "react-native";
+import GlobalState from "./app/contexts/GlobalState";
+import tickets from "./app/data/tickets.json";
 
 export default function App() {
+  const [Gstate, setGstate] = useState({ tickets: tickets });
   LogBox.ignoreLogs([
     "Your project is accessing the following APIs from a deprecated global rather than a module import: Constants (expo-constants).",
   ]);
@@ -28,6 +31,7 @@ export default function App() {
     Comfortaa_600SemiBold,
     Comfortaa_700Bold,
     Montserrat_400Regular,
+    Montserrat_700Bold,
   });
   if (!fontsLoaded) {
     return <LoadScreen />;
@@ -35,7 +39,9 @@ export default function App() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <RootNav />
+      <GlobalState.Provider value={[Gstate, setGstate]}>
+        <RootNav />
+      </GlobalState.Provider>
     </SafeAreaView>
   );
 }
