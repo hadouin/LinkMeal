@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
   },
   button: {
     position: "absolute",
-    left: width / 2 - 30,
-    bottom: 35,
+    left: width / 2 - 25,
+    bottom: 30,
   },
   buttonClose: {
     backgroundColor: "#2196F3",
@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#ff8b4b",
     borderRadius: 80,
-    height: 60,
-    width: 60,
+    height: 50,
+    width: 50,
     justifyContent: "center",
     alignItems: "center",
   },

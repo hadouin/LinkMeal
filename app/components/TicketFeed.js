@@ -11,6 +11,7 @@ import { List, ListItem, SearchBar } from "react-native-elements";
 import _ from "lodash";
 import Ticket from "./Ticket";
 import { getTickets, contains, fullContains, valueIn } from "../data/index";
+import GlobalState from "../contexts/GlobalState";
 
 class TicketFeed extends Component {
   constructor(props) {
@@ -20,10 +21,13 @@ class TicketFeed extends Component {
       loading: false,
       data: [],
       error: null,
-      query: "",
+      query: this.props.initialQuery,
       fullData: [],
     };
   }
+  static defaultProps = {
+    initialQuery: "",
+  };
 
   componentDidMount() {
     this.makeRemoteRequest();
@@ -47,7 +51,7 @@ class TicketFeed extends Component {
   };
 
   handleSearch = (text) => {
-    const formatQuery = text.toLowerCase();
+    const formatQuery = text;
     const data = _.filter(this.state.fullData, (ticket) => {
       return valueIn(ticket, formatQuery);
     });

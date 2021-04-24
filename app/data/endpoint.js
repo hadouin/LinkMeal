@@ -3,6 +3,8 @@ import ticketsData from "./tickets.json";
 import userData from "./user.json";
 import _ from "lodash";
 
+export function publishTicket(data) {}
+
 export function fetchUserData(token) {
   let filteredData = [];
   if (token == "all") {

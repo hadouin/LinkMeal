@@ -13,11 +13,10 @@ function ProfileScreen(props) {
             source={{
               width: 30,
               height: 30,
-              uri:
-                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+              uri: "https://randomuser.me/api/portraits/men/75.jpg",
             }}
           />
-          <Text>Username</Text>
+          <Text>John Doe</Text>
         </View>
         <TouchableOpacity
           style={styles.balance}
@@ -41,7 +40,7 @@ function ProfileScreen(props) {
           Vos Annonces
         </Text>
         <View style={{ flex: 1, alignSelf: "stretch" }}>
-          <TicketFeed {...props} author="1234" />
+          <TicketFeed {...props} initialQuery="John Doe" />
         </View>
       </View>
     </View>
@@ -52,14 +51,17 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
     paddingBottom: 55,
+    alignItems: "stretch",
   },
   profile: {
+    alignSelf: "center",
     padding: 10,
     flexDirection: "row",
     backgroundColor: "#fff",
     marginVertical: 10,
     borderRadius: 20,
     height: "20%",
+    width: "90%",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
