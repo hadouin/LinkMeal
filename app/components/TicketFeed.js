@@ -21,10 +21,13 @@ class TicketFeed extends Component {
       loading: false,
       data: [],
       error: null,
-      query: "",
+      query: this.props.initialQuery,
       fullData: [],
     };
   }
+  static defaultProps = {
+    initialQuery: "",
+  };
 
   componentDidMount() {
     this.makeRemoteRequest();
