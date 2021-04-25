@@ -24,7 +24,7 @@ function ProfileScreen(props) {
           <Text style={{ textAlign: "right" }}>#balance</Text>
           <Image
             style={styles.bitmeal}
-            source={require("../assets/images/bitmeal.png")}
+            source={require("../assets/images/Logo-Orange.png")}
           />
         </TouchableOpacity>
       </View>

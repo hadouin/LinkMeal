@@ -1,6 +1,8 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { createIconSetFromIcoMoon } from "@expo/vector-icons";
+import users from "../data/user1.json";
+import _ from "lodash";
 
 export default function DetailScreen(props) {
   const Icon = createIconSetFromIcoMoon(
@@ -10,6 +12,9 @@ export default function DetailScreen(props) {
   );
 
   let item = props.route.params.item;
+  var author = _.filter(users, (user) => {
+    return user.id === item.issuer;
+  })[0];
   return (
     <View style={styles.container}>
       <Image
@@ -24,10 +29,10 @@ export default function DetailScreen(props) {
             style={{
               borderRadius: 32,
             }}
-            source={{ height: 32, width: 32, uri: item.author.picture }}
+            source={{ height: 32, width: 32, uri: author.picture }}
           />
           <Text style={{ alignSelf: "center", marginLeft: 5 }}>
-            {item.author.name}
+            {author.name.first + " " + author.name.last}
           </Text>
         </View>
 
@@ -61,16 +66,16 @@ export default function DetailScreen(props) {
               justifyContent: "center",
             }}
           >
-            <Text>Commander </Text>
-            <Text>{item.price}</Text>
+            <Text>Reserver </Text>
+            <Text style={{ fontSize: 20 }}>{item.price}</Text>
             <Image
               style={{
-                height: 40,
-                width: 40,
+                height: 30,
+                width: 30,
                 margin: 5,
                 resizeMode: "contain",
               }}
-              source={require("../assets/images/bitmeal.png")}
+              source={require("../assets/images/Logo-Orange.png")}
             />
           </TouchableOpacity>
         </View>
