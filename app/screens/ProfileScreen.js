@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import TicketFeed from "../components/TicketFeed";
-import fetchTickets from "../data/endpoint";
 
 function ProfileScreen(props) {
   return (
@@ -40,7 +39,7 @@ function ProfileScreen(props) {
           Vos Annonces
         </Text>
         <View style={{ flex: 1, alignSelf: "stretch" }}>
-          <TicketFeed {...props} initialQuery="John Doe" />
+          <TicketFeed {...props} initialQuery="bio" />
         </View>
       </View>
     </View>

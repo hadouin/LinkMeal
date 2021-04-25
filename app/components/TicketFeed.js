@@ -109,7 +109,7 @@ class TicketFeed extends Component {
             </>
           );
         }}
-        keyExtractor={(item) => item._id}
+        keyExtractor={(item) => item.id}
         ListHeaderComponent={this.renderHeader}
       />
     );

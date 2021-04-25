@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { fetchUserData } from "../data/endpoint";
 
 export default function Friend(props) {
   function handlePress() {

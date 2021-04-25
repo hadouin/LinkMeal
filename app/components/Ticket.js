@@ -1,8 +1,12 @@
 import React from "react";
-import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { Text, View, StyleSheet, Image } from "react-native";
+import users from "../data/user1.json";
+import _ from "lodash";
 
 function Ticket(props) {
+  var author = _.filter(users, (user) => {
+    return user.id === props.data.issuer;
+  })[0];
   return (
     <View style={styles.container}>
       <Image
@@ -23,9 +27,11 @@ function Ticket(props) {
             style={{
               borderRadius: 32,
             }}
-            source={{ width: 32, height: 32, uri: props.data.author.picture }}
+            source={{ width: 32, height: 32, uri: author.picture }}
           />
-          <Text style={{ margin: 5 }}>{props.data.author.name}</Text>
+          <Text style={{ margin: 5 }}>
+            {author.name.first + " " + author.name.last}
+          </Text>
         </View>
         <Text>{props.data.tags}</Text>
         <View style={styles.price}>
