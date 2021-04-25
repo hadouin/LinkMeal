@@ -35,22 +35,19 @@ function Ticket(props) {
         </View>
         <Text>{props.data.tags}</Text>
         <View style={styles.price}>
-          <Text style={{ fontSize: 20, fontFamily: "Comfortaa_700Bold" }}>
+          <Text
+            style={{
+              fontSize: 25,
+              fontFamily: "Comfortaa_700Bold",
+            }}
+          >
             {props.data.price}
           </Text>
           <Image
             style={{
-              height: 35,
-              width: 35,
+              height: 30,
+              width: 30,
               resizeMode: "contain",
-              marginHorizontal: 5,
-              shadowColor: "#000",
-              shadowOffset: {
-                width: 0,
-                height: 2,
-              },
-              shadowOpacity: 0.25,
-              shadowRadius: 3.84,
             }}
             source={require("../assets/images/Logo-Orange.png")}
           />

@@ -3,8 +3,8 @@ import {
   useFonts,
   Comfortaa_400Regular,
   Comfortaa_500Medium,
-  Comfortaa_700Bold,
   Comfortaa_600SemiBold,
+  Comfortaa_700Bold,
 } from "@expo-google-fonts/comfortaa";
 import {
   Montserrat_400Regular,
