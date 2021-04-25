@@ -10,7 +10,7 @@ import {
 import { List, ListItem, SearchBar } from "react-native-elements";
 import Friend from "../components/Friend";
 import _ from "lodash";
-import { getUsers, contains } from "../data/index";
+import { getUsers, valueIn } from "../data/index";
 
 class FriendList extends Component {
   constructor(props) {
@@ -46,9 +46,9 @@ class FriendList extends Component {
   };
 
   handleSearch = (text) => {
-    const formatQuery = text.toLowerCase();
+    const formatQuery = text;
     const data = _.filter(this.state.fullData, (user) => {
-      return contains(user, formatQuery);
+      return valueIn(user, formatQuery);
     });
     this.setState({ query: formatQuery, data }, () => this.makeRemoteRequest());
   };
@@ -111,7 +111,7 @@ class FriendList extends Component {
               >
                 <Friend
                   navigation={this.props.navigation}
-                  picture={item.picture.thumbnail}
+                  picture={item.picture}
                   name={item.name.first + " " + item.name.last}
                   isFriend={isFriend}
                 />
