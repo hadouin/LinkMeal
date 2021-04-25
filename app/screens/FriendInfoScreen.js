@@ -11,7 +11,7 @@ export default function FriendInfoScreen(props) {
             source={{
               width: 30,
               height: 30,
-              uri: props.route.params.item.picture.large,
+              uri: props.route.params.item.picture,
             }}
           />
           <Text>
