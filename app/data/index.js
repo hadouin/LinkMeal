@@ -50,11 +50,10 @@ export function valueIn(obj, query) {
       if (valueIn(value, query)) {
         return true;
       }
-    } else {
-      value = String(value);
-      if (value.includes(query)) {
-        return true;
-      }
+    }
+    value = String(value);
+    if (value.includes(query)) {
+      return true;
     }
   }
 }
