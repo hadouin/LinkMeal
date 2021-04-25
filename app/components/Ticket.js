@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import users from "../data/user1.json";
 import _ from "lodash";
+import Tags from "./Tags";
 
 function Ticket(props) {
   var author = _.filter(users, (user) => {
@@ -33,7 +34,7 @@ function Ticket(props) {
             {author.name.first + " " + author.name.last}
           </Text>
         </View>
-        <Text>{props.data.tags}</Text>
+        <Tags tags={props.data.tags} />
         <View style={styles.price}>
           <Text
             style={{
@@ -58,6 +59,7 @@ function Ticket(props) {
 }
 
 const styles = StyleSheet.create({
+  tagPic: { width: 30, height: 30, marginTop: 5 },
   container: {
     flex: 1,
     flexDirection: "row",
@@ -85,6 +87,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   bar: {
+    marginBottom: 5,
     height: 10,
     width: 50,
     flexDirection: "row",
