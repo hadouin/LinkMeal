@@ -11,6 +11,7 @@ import {
 import { createIconSetFromIcoMoon } from "@expo/vector-icons";
 import users from "../data/user1.json";
 import _, { size } from "lodash";
+import Tags from "../components/Tags";
 
 function ContactModal(props) {
   return (
@@ -100,15 +101,19 @@ export default function DetailScreen(props) {
         </View>
         <View style={styles.bar} />
         <View style={styles.author}>
-          <Image
-            style={{
-              borderRadius: 32,
-            }}
-            source={{ height: 32, width: 32, uri: author.picture }}
-          />
-          <Text style={{ alignSelf: "center", marginLeft: 5, color: "#222" }}>
-            {author.name.first + " " + author.name.last}
-          </Text>
+          <View style={{ flexDirection: "row" }}>
+            <Image
+              style={{
+                borderRadius: 32,
+              }}
+              source={{ height: 32, width: 32, uri: author.picture }}
+            />
+            <Text style={{ alignSelf: "center", marginLeft: 5, color: "#222" }}>
+              {author.name.first + " " + author.name.last}
+            </Text>
+          </View>
+
+          <Tags tags={item.tags} />
         </View>
 
         <View style={styles.description}>
@@ -213,6 +218,7 @@ const styles = StyleSheet.create({
   author: {
     padding: 5,
     flexDirection: "row",
+    justifyContent: "space-between",
   },
   bar: {
     marginRight: 5,
