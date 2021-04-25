@@ -17,9 +17,14 @@ import { SafeAreaView } from "react-navigation";
 import { LogBox } from "react-native";
 import GlobalState from "./app/contexts/GlobalState";
 import tickets from "./app/data/ticket1.json";
+import users from "./app/data/user1.json";
 
 export default function App() {
-  const [Gstate, setGstate] = useState({ tickets: tickets });
+  const [Gstate, setGstate] = useState({
+    tickets: tickets,
+    users: users,
+    activeId: 0,
+  });
   LogBox.ignoreLogs([
     "Your project is accessing the following APIs from a deprecated global rather than a module import: Constants (expo-constants).",
   ]);
