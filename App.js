@@ -16,7 +16,7 @@ import RootNav from "./app/navigation/RootNav";
 import { SafeAreaView } from "react-navigation";
 import { LogBox } from "react-native";
 import GlobalState from "./app/contexts/GlobalState";
-import tickets from "./app/data/tickets.json";
+import tickets from "./app/data/ticket1.json";
 
 export default function App() {
   const [Gstate, setGstate] = useState({ tickets: tickets });

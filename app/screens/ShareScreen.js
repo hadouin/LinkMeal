@@ -85,28 +85,20 @@ export default function ShareScreen(props) {
     if (gFree) {
       tags.push("gFree");
     }
+    if (image === null) {
+      ("http://placehold.it/100x100");
+    }
     const dataObj = {
-      _id: Math.floor(Math.random() * 1000000),
-      price: price,
+      id: Gstate.tickets.lenght,
       picture: image,
       title: title,
       description: description,
-      startDate: startDate,
-      weight: weight,
       tags: tags,
-      author: {
-        id: "1234",
-        name: "John Doe",
-        address: "ISEP",
-        latitude: 48.845456830191246,
-        longitude: 2.3280566848276334,
-        about:
-          "Commodo sint aute id proident reprehenderit. Aute aliquip sint fugiat qui qui nostrud Lorem tempor qui quis. Enim consectetur eiusmod aliquip ea.\r\n",
-        picture: "https://randomuser.me/api/portraits/men/75.jpg",
-      },
+      price: price,
+      issuer: 4,
+      buyer: null,
     };
     Gstate.tickets.unshift(dataObj);
-    console.log(Gstate.tickets[0]);
   };
   return (
     <View style={styles.modalView}>

@@ -1,6 +1,6 @@
 import _ from "lodash";
-import users from "./users";
-import tickets from "./tickets.json";
+import users from "./user1.json";
+import tickets from "./ticket1.json";
 
 export const contains = (item, query) => {
   if (
@@ -21,7 +21,7 @@ export const getUsers = (limit = 20, query = "") => {
     } else {
       const formattedQuery = query;
       const results = _.filter(users, (user) => {
-        return contains(user, formattedQuery);
+        return valueIn(user, formattedQuery);
       });
       resolve(_.take(results, limit));
     }
@@ -46,13 +46,15 @@ export const getTickets = (limit = 20, query = "") => {
 export function valueIn(obj, query) {
   for (const prop in obj) {
     const value = obj[prop];
-    console.log(value);
     if (typeof value === "object") {
       if (valueIn(value, query)) {
         return true;
       }
-    } else if (typeof value === "string" && value.includes(query)) {
-      return true;
+    } else {
+      value = String(value);
+      if (value.includes(query)) {
+        return true;
+      }
     }
   }
 }

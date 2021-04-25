@@ -1,6 +1,6 @@
 import { RefreshControl } from "react-native";
-import ticketsData from "./tickets.json";
-import userData from "./user.json";
+import ticketsData from "./ticket1.json";
+import userData from "./user1.json";
 import _ from "lodash";
 
 export function publishTicket(data) {}

@@ -4,10 +4,7 @@ import { SearchBar } from "react-native-elements";
 import FriendList from "../components/FriendList";
 
 export default function FriendScreen(props) {
-  let helperArray = require("../data/user.json");
   const [search, setSearch] = useState();
-  const [allUsers, setAllUsers] = useState(helperArray);
-  const [usersFitlered, setUsersFitlered] = useState(helperArray);
 
   function handleChange(text) {
     setSearch(text);
