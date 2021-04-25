@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import TicketFeed from "../components/TicketFeed";
+import GlobalState from "../contexts/GlobalState";
+import _ from "lodash";
+import color from "color";
 
 function ProfileScreen(props) {
+  const [gstate, setGstate] = useContext(GlobalState);
+  useEffect(() => {}, []);
+  function getBalance() {
+    new Promise((resolve, reject) => {
+      resolve(
+        _.filter(gstate.tickets, (ticket) => {
+          const activeId = gstate.activeId;
+          return ticket.issuer === activeId || ticket.buyer === activeId;
+        })
+      );
+    }).then((transfers) => {
+      transfers.map((item) => {
+        if (item.buyer === gstate.activeId) {
+          balance = balance - item.price;
+        }
+        if (item.issuer === gstate.activeId) {
+          balance = balance + item.price;
+        }
+        return balance;
+      });
+    });
+  }
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
@@ -21,11 +46,17 @@ function ProfileScreen(props) {
           style={styles.balance}
           onPress={() => props.navigation.navigate("Wallet")}
         >
-          <Text style={{ textAlign: "right" }}>#balance</Text>
-          <Image
-            style={styles.bitmeal}
-            source={require("../assets/images/Logo-Orange.png")}
-          />
+          <View style={styles.walletButton}>
+            <Text
+              style={{ textAlign: "right", fontSize: 20, fontWeight: "bold" }}
+            >
+              {" " + 3}
+            </Text>
+            <Image
+              style={styles.bitmeal}
+              source={require("../assets/images/Logo-Orange.png")}
+            />
+          </View>
         </TouchableOpacity>
       </View>
       <View style={styles.tickets}>
@@ -46,6 +77,14 @@ function ProfileScreen(props) {
   );
 }
 const styles = StyleSheet.create({
+  walletButton: {
+    justifyContent: "center",
+    backgroundColor: "hsl(21, 0%, 87%)",
+    flexDirection: "row",
+    alignItems: "center",
+    borderRadius: 100,
+    paddingHorizontal: 20,
+  },
   container: {
     flex: 1,
     padding: 5,
@@ -53,7 +92,9 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
   },
   profile: {
+    justifyContent: "space-between",
     alignSelf: "center",
+    alignItems: "center",
     padding: 10,
     flexDirection: "row",
     backgroundColor: "#fff",
@@ -83,9 +124,9 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   balance: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    flex: 1,
     flexDirection: "row",
   },
   bitmeal: {

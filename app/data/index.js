@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _, { get, result } from "lodash";
 import users from "./user1.json";
 import tickets from "./ticket1.json";
 
@@ -25,6 +25,17 @@ export const getUsers = (limit = 20, query = "") => {
       });
       resolve(_.take(results, limit));
     }
+  });
+};
+
+export const getUser = (id) => {
+  console.log("apiCalled", id);
+  return new Promise((resolve, reject) => {
+    resolve(
+      _.filter(users, (user) => {
+        return user.id === id;
+      })
+    );
   });
 };
 
