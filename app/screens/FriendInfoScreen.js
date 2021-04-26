@@ -61,7 +61,7 @@ export default function FriendInfoScreen(props) {
       </View>
       <View style={styles.tickets}>
         <View style={{ flex: 1, alignSelf: "stretch" }}>
-          <TicketFeed {...props} initialQuery="bio" />
+          <TicketFeed {...props} id={props.route.params.item.id} />
         </View>
       </View>
     </View>
