@@ -1,80 +1,102 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { Component, useContext, useEffect, useState } from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import TicketFeed from "../components/TicketFeed";
 import GlobalState from "../contexts/GlobalState";
 import _ from "lodash";
 import color from "color";
+import { getUser } from "../data";
+import { isLoading } from "expo-font";
+import users from "../data/user1.json";
 
-function ProfileScreen(props) {
-  const [gstate, setGstate] = useContext(GlobalState);
-  useEffect(() => {}, []);
-  function getBalance() {
+class ProfileScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: { name: { first: "loading", last: "loading" } },
+    };
+  }
+  static contextType = GlobalState;
+
+  componentDidMount() {
+    getUser(this.context[0].activeId).then((user) => {
+      this.setState({ user: user[0] }, this.getBalance);
+    });
+  }
+
+  getBalance() {
     new Promise((resolve, reject) => {
       resolve(
-        _.filter(gstate.tickets, (ticket) => {
-          const activeId = gstate.activeId;
+        _.filter(this.context[0].tickets, (ticket) => {
+          const activeId = this.context[0].activeId;
           return ticket.issuer === activeId || ticket.buyer === activeId;
         })
       );
     }).then((transfers) => {
+      let balance = 5;
       transfers.map((item) => {
-        if (item.buyer === gstate.activeId) {
+        if (item.buyer === this.context[0].activeId) {
           balance = balance - item.price;
         }
-        if (item.issuer === gstate.activeId) {
+        if (item.issuer === this.context[0].activeId) {
           balance = balance + item.price;
         }
-        return balance;
+        console.log("balance set :", balance);
+        this.setState({ balance: balance });
       });
     });
   }
-  return (
-    <View style={styles.container}>
-      <View style={styles.profile}>
-        <View style={styles.user}>
-          <Image
-            style={styles.pp}
-            source={{
-              width: 30,
-              height: 30,
-              uri: "https://randomuser.me/api/portraits/men/75.jpg",
-            }}
-          />
-          <Text>John Doe</Text>
-        </View>
-        <TouchableOpacity
-          style={styles.balance}
-          onPress={() => props.navigation.navigate("Wallet")}
-        >
-          <View style={styles.walletButton}>
-            <Text
-              style={{ textAlign: "right", fontSize: 20, fontWeight: "bold" }}
-            >
-              {" " + 3}
-            </Text>
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.profile}>
+          <View style={styles.user}>
             <Image
-              style={styles.bitmeal}
-              source={require("../assets/images/Logo-Orange.png")}
+              style={styles.pp}
+              source={{
+                width: 30,
+                height: 30,
+                uri: this.state.user.picture,
+              }}
             />
+            <Text>
+              {this.state.user.name.first + " " + this.state.user.name.last}
+            </Text>
           </View>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.tickets}>
-        <Text
-          style={{
-            fontFamily: "Comfortaa_700Bold",
-            fontSize: 30,
-            color: "#fff",
-          }}
-        >
-          Vos Annonces
-        </Text>
-        <View style={{ flex: 1, alignSelf: "stretch" }}>
-          <TicketFeed {...props} initialQuery="bio" />
+          <TouchableOpacity
+            style={styles.balance}
+            onPress={() => this.props.navigation.navigate("Wallet")}
+          >
+            <View style={styles.walletButton}>
+              <Text
+                style={{ textAlign: "right", fontSize: 20, fontWeight: "bold" }}
+              >
+                {String(this.state.balance)}
+              </Text>
+              <Image
+                style={styles.bitmeal}
+                source={require("../assets/images/Logo-Orange.png")}
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.tickets}>
+          <Text
+            style={{
+              fontFamily: "Comfortaa_700Bold",
+              fontSize: 30,
+              color: "#fff",
+            }}
+          >
+            Vos Annonces
+          </Text>
+          <View style={{ flex: 1, alignSelf: "stretch" }}>
+            <TicketFeed {...this.props} id={this.context[0].activeId} />
+          </View>
         </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
 const styles = StyleSheet.create({
   walletButton: {
