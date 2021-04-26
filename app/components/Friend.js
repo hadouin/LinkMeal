@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   remove: {
     justifyContent: "center",
     alignItems: "center",
-    width: 60,
+    width: 70,
     backgroundColor: "#fff",
     borderRadius: 5,
     borderWidth: 2,
