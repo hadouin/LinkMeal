@@ -8,7 +8,7 @@ export default function FriendInfoScreen(props) {
     setIsFriend(!isFriend);
   };
   return (
-    <View style={{ flex: 1, padding: 5, paddingBottom: 50 }}>
+    <View style={{ flex: 1, padding: 5, paddingBottom: 55 }}>
       <View style={styles.profile}>
         <View style={styles.user}>
           <Image
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#ff8b4b",
     padding: 5,
+    paddingVertical: 10,
     borderRadius: 20,
   },
   contact: {

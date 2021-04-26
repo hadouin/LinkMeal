@@ -34,8 +34,8 @@ export default function TabBar({ state, navigation }) {
             />
           ))}
         </View>
+        <ShareButton />
       </View>
-      <ShareButton />
     </View>
   );
 }
