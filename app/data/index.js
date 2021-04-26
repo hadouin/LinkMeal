@@ -39,18 +39,29 @@ export const getUser = (id) => {
   });
 };
 
-export const getTickets = (limit = 20, query = "") => {
-  console.log("apiCalled", query);
+export const getTickets = (limit = 20, query = "", issuer = null) => {
+  console.log("apiCalled", query, issuer);
   return new Promise((resolve, reject) => {
-    if (query.length === 0) {
+    if (query.length === 0 && issuer == null) {
       resolve(_.take(tickets, limit));
     } else {
-      const formattedQuery = query;
-      const results = _.filter(tickets, (ticket) => {
-        return valueIn(ticket, formattedQuery);
-      });
-      resolve(_.take(results, limit));
+      if (issuer === null) {
+        const results = _.filter(tickets, (ticket) => {
+          return valueIn(ticket, query);
+        });
+        resolve(_.take(results, limit));
+      }
+      if (query.length === 0) {
+        const results = _.filter(tickets, (ticket) => {
+          return ticket.issuer === issuer;
+        });
+        resolve(_.take(results, limit));
+      }
     }
+    const results = _.filter(tickets, (ticket) => {
+      return valueIn(ticket, query) && ticket.issuer === issuer;
+    });
+    resolve(_.take(results, limit));
   });
 };
 

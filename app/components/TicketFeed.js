@@ -36,7 +36,7 @@ class TicketFeed extends Component {
   makeRemoteRequest = () => {
     this.setState({ loading: true });
 
-    getTickets(20, this.state.query)
+    getTickets(20, this.state.query, this.props.id)
       .then((tickets) => {
         console.log("finished load");
         this.setState({
@@ -90,8 +90,12 @@ class TicketFeed extends Component {
   };
 
   render() {
-    console.log("rendering");
-    return (
+    console.log("rendering", "datalenght", this.state.data.length);
+    return this.state.data.lenght === 0 ? (
+      <View style={{ flex: 1 }}>
+        <Text>C'est bien vide par ici</Text>
+      </View>
+    ) : (
       <FlatList
         contentContainerStyle={styles.list}
         data={this.state.data}
