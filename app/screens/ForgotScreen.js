@@ -89,13 +89,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   circle: {
-    width: 900,
-    height: 900,
-    borderRadius: 900 / 2,
+    width: windowWidth * 2,
+    height: windowHeight * 2,
+    borderRadius: windowWidth,
     backgroundColor: "#ff8b4b",
     position: "absolute",
-    top: -900 / 2 - 25,
-    left: windowWidth / 2 - 900 / 2,
+    top: -windowHeight - windowHeight / 4,
+    left: windowWidth / 2 - windowWidth,
   },
   logo: {
     resizeMode: "contain",
