@@ -101,7 +101,6 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 20,
     height: "20%",
-    width: "90%",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
