@@ -56,13 +56,13 @@
   },
   {
     "id": "6084ce5967d9f42715a8b460",
-    "closed": true,
+    "closed": false,
     "picture": "http://placehold.it/100x100",
     "title": "Quiche",
     "description": "Sit dolore esse exercitation cupidatat fugiat amet. Quis dolor eu commodo quis culpa Lorem nulla.",
     "tags": "bio",
     "price": 3,
-    "issuer": 7,
+    "issuer": 0,
     "buyer": 5
   },
   {
