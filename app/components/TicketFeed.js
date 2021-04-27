@@ -34,7 +34,7 @@ class TicketFeed extends Component {
     this.makeRemoteRequest();
   }
 
-  makeRemoteRequest = () => {
+  makeRemoteRequest = _.debounce(() => {
     this.setState({ loading: true });
 
     getTickets(20, this.state.query, this.props.id)
@@ -49,7 +49,7 @@ class TicketFeed extends Component {
       .catch((error) => {
         this.setState({ error, loading: false });
       });
-  };
+  }, 250);
 
   handleSearch = (text) => {
     const formatQuery = text;
@@ -102,6 +102,11 @@ class TicketFeed extends Component {
         data={this.state.data}
         refreshControl={
           <RefreshControl
+            style={
+              this.props.showSearch
+                ? (console.log("okdepart"), { backgroundColor: "#00f2" })
+                : {}
+            }
             enabled={true}
             onRefresh={this.makeRemoteRequest}
             refreshing={this.state.loading}

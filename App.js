@@ -10,6 +10,8 @@ import {
   Montserrat_400Regular,
   Montserrat_700Bold,
   Montserrat_800ExtraBold,
+  Montserrat_500Medium,
+  Montserrat_600SemiBold,
 } from "@expo-google-fonts/montserrat";
 import LoadScreen from "./app/screens/LoadScreen";
 import RootNav from "./app/navigation/RootNav";
@@ -24,6 +26,7 @@ export default function App() {
     tickets: tickets,
     users: users,
     activeId: 0,
+    isLoggedIn: false,
   });
   LogBox.ignoreLogs([
     "Your project is accessing the following APIs from a deprecated global rather than a module import: Constants (expo-constants).",
@@ -37,6 +40,9 @@ export default function App() {
     Comfortaa_700Bold,
     Montserrat_400Regular,
     Montserrat_700Bold,
+    Montserrat_800ExtraBold,
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
   });
   if (!fontsLoaded) {
     return <LoadScreen />;
