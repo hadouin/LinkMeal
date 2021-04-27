@@ -147,12 +147,6 @@ export default function ShareScreen(props) {
             multiline={true}
           />
         </View>
-        <CounterComp
-          title={"Poids (grammes)"}
-          defaultVal={String(weight)}
-          increment={10}
-          changeHandler={setWeight}
-        />
         <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
           <CheckBox
             containerStyle={{}}
