@@ -24,7 +24,9 @@ function Ticket(props) {
                 {props.data.title}
               </Text>
             </View>
-            <View style={styles.bar} />
+            <View style={{ flexDirection: "row" }}>
+              <View style={styles.bar} />
+            </View>
             <View style={styles.author}>
               <Image
                 style={{

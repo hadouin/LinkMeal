@@ -7,7 +7,7 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TicketFeed {...this.props} />
+        <TicketFeed {...this.props} mode={"home"} />
       </View>
     );
   }
