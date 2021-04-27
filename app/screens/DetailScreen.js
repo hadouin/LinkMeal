@@ -145,8 +145,8 @@ export default function DetailScreen(props) {
               </Text>
             </TouchableOpacity>
           </View>
-          {item.buyer == null && item.issuer !== author.id ? (
-            <TouchableOpacity style={styles.order}>
+          {item.buyer == null || item.issuer !== author.id ? (
+            <TouchableOpacity style={styles.order} onPress={() => {}}>
               <Text
                 style={{
                   color: "#fff",
