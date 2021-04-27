@@ -30,7 +30,10 @@ class ProfileScreen extends Component {
       resolve(
         _.filter(this.context[0].tickets, (ticket) => {
           const activeId = this.context[0].activeId;
-          return ticket.issuer === activeId || ticket.buyer === activeId;
+          return (
+            (ticket.issuer === activeId || ticket.buyer === activeId) &&
+            ticket.closed
+          );
         })
       );
     }).then((transfers) => {
