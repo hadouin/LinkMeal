@@ -10,7 +10,12 @@ export default function SettingsScreen(props) {
       title: "Log out",
       icon: "logout",
       changeHandler: () => {
-        setgstate({ isLoggedIn: false });
+        setgstate({
+          tickets: gstate.tickets,
+          users: gstate.users,
+          activeId: null,
+          isLoggedIn: false,
+        });
       },
     },
   ];
