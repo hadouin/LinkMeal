@@ -89,7 +89,7 @@ export default function ShareScreen(props) {
     }
 
     const dataObj = {
-      id: Gstate.tickets.lenght,
+      id: String(Gstate.tickets.lenght),
       picture: formattedImg,
       title: title,
       description: description,
