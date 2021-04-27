@@ -1,6 +1,7 @@
 [
   {
     "id": "6084ce59c59cf158ef10aa7a",
+    "closed": true,
     "picture": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     "title": "Pizza",
     "description": "Laboris aute incididunt laborum irure ad aliqua eu non. Nulla aute consequat reprehenderit et sint.",
@@ -11,6 +12,7 @@
   },
   {
     "id": "6084ce5947a3728a2337e397",
+    "closed": true,
     "picture": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFzdGF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "title": "Pâtes",
     "description": "Ex laborum voluptate mollit deserunt proident duis nisi consequat nulla quis duis elit mollit. Voluptate reprehenderit voluptate magna magna pariatur.",
@@ -21,6 +23,7 @@
   },
   {
     "id": "6084ce59e1719444d0012dc5",
+    "closed": true,
     "picture": "https://images.unsplash.com/photo-1551807501-9263ed1942d8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cXVpY2hlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "title": "Quiche",
     "description": "Sit non ex elit culpa commodo cillum cupidatat irure. Aute adipisicing nulla elit veniam cupidatat est in laboris ut ut aliquip quis culpa.",
@@ -31,6 +34,7 @@
   },
   {
     "id": "6084ce596cb3d9fab2320e04",
+    "closed": true,
     "picture": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     "title": "Pizza",
     "description": "Proident reprehenderit elit ipsum laborum amet sit ut officia quis sit quis. Occaecat laboris ullamco mollit consectetur nisi eiusmod laborum deserunt et.",
@@ -41,6 +45,7 @@
   },
   {
     "id": "6084ce59e4a20d7c92cf05f9",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Quiche",
     "description": "Nisi enim proident irure aliqua aute aliquip do dolor elit. Sunt sit excepteur Lorem deserunt aute fugiat et enim laboris consequat cupidatat labore officia excepteur.",
@@ -51,6 +56,7 @@
   },
   {
     "id": "6084ce5967d9f42715a8b460",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Quiche",
     "description": "Sit dolore esse exercitation cupidatat fugiat amet. Quis dolor eu commodo quis culpa Lorem nulla.",
@@ -61,6 +67,7 @@
   },
   {
     "id": "6084ce59ea478df17d3e9ac8",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Crepes",
     "description": "Labore nulla sunt ea pariatur excepteur sint consectetur cillum dolor do exercitation. Duis veniam Lorem occaecat ea nulla non nulla aliqua eiusmod Lorem anim.",
@@ -71,6 +78,7 @@
   },
   {
     "id": "6084ce59932fbb81676d098f",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Quiche",
     "description": "Commodo deserunt cupidatat veniam ut laborum ullamco et tempor cupidatat sunt ullamco. Ea tempor reprehenderit commodo aliquip reprehenderit irure culpa aliquip est irure dolor.",
@@ -81,6 +89,7 @@
   },
   {
     "id": "6084ce59c4bb15af3213824d",
+    "closed": true,
     "picture": "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     "title": "Pizza",
     "description": "Dolore duis deserunt reprehenderit in ut minim consequat voluptate laboris. Dolor duis et cillum commodo consequat non adipisicing aute cillum amet dolore mollit culpa nisi.",
@@ -91,6 +100,7 @@
   },
   {
     "id": "6084ce59d1a536dbb4fe3660",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Lasagne",
     "description": "Nostrud proident excepteur magna culpa minim qui. Esse qui nisi ut voluptate.",
@@ -101,6 +111,7 @@
   },
   {
     "id": "6084ce59faadcbf2be462d2c",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Lasagne",
     "description": "Sint labore consectetur aute irure sint voluptate nisi mollit nisi excepteur officia ea Lorem. Amet enim ipsum velit mollit excepteur deserunt duis exercitation exercitation ullamco.",
@@ -111,6 +122,7 @@
   },
   {
     "id": "6084ce590d042b9cdb163d17",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Quiche",
     "description": "Ut aute do aute ipsum deserunt reprehenderit duis. Sint ad laboris mollit aliqua labore cupidatat enim non ut eiusmod ex commodo labore dolore.",
@@ -121,6 +133,7 @@
   },
   {
     "id": "6084ce59d128caf520be067b",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Crepes",
     "description": "Ipsum ex ad irure consequat mollit duis. Nulla laborum voluptate cillum est ea.",
@@ -141,6 +154,7 @@
   },
   {
     "id": "6084ce59ea6e77fac5169cf0",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Pizza",
     "description": "Sit consectetur sunt incididunt ullamco. Mollit ad sint fugiat pariatur do mollit.",
@@ -151,6 +165,7 @@
   },
   {
     "id": "6084ce59bfecfbce298a9ec7",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Pizza",
     "description": "Velit esse anim aute cupidatat amet. Dolor laborum elit consectetur est.",
@@ -161,6 +176,7 @@
   },
   {
     "id": "6084ce59f602fa0022150068",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Crepes",
     "description": "Magna adipisicing sint tempor reprehenderit. Enim sit veniam enim sit proident veniam id enim sit ad dolore sint.",
@@ -171,6 +187,7 @@
   },
   {
     "id": "6084ce5972b82d0a606fa02b",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Quiche",
     "description": "Nostrud nostrud nulla Lorem proident nulla aliquip quis nisi eiusmod nulla tempor veniam eiusmod. Dolor amet fugiat dolore culpa eu non mollit sint cillum reprehenderit fugiat proident.",
@@ -181,6 +198,7 @@
   },
   {
     "id": "6084ce59290de0644412bd28",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Lasagne",
     "description": "Enim et officia culpa consequat eu reprehenderit sint sunt id laboris sunt. Eu non magna velit velit enim irure ex pariatur enim ut ad commodo pariatur.",
@@ -191,6 +209,7 @@
   },
   {
     "id": "6084ce592a842849e2e08e7d",
+    "closed": true,
     "picture": "http://placehold.it/100x100",
     "title": "Quiche",
     "description": "In ut officia consequat proident cupidatat. Consequat cupidatat amet sint et sint eu.",
