@@ -16,7 +16,9 @@ const { width } = Dimensions.get("screen");
 export default function ShareModal(props) {
   return (
     <View style={styles.centeredView}>
-      <ShareScreen />
+      <ShareScreen
+        handleClose={() => props.setModalVisible(!props.modalVisible)}
+      />
       <TouchableOpacity
         style={styles.button}
         onPress={() => props.setModalVisible(!props.modalVisible)}

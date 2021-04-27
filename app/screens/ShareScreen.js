@@ -27,8 +27,6 @@ export default function ShareScreen(props) {
   const [title, onChangeTitle] = useState(null);
   const [description, onChangeDescription] = useState(null);
   const [weight, setWeight] = useState(100);
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
   const [bio, setBio] = useState(false);
   const [gFree, setgFree] = useState(false);
   const [vegan, setVegan] = useState(false);
@@ -85,20 +83,23 @@ export default function ShareScreen(props) {
     if (gFree) {
       tags.push("gFree");
     }
-    if (image === null) {
-      ("http://placehold.it/100x100");
+    let formattedImg = "http://placehold.it/100x100";
+    if (typeof image === "string") {
+      formattedImg = image;
     }
+
     const dataObj = {
-      id: Gstate.tickets.lenght,
-      picture: image,
+      id: String(Gstate.tickets.lenght),
+      picture: formattedImg,
       title: title,
       description: description,
       tags: tags,
       price: price,
-      issuer: 4,
+      issuer: 0,
       buyer: null,
     };
     Gstate.tickets.unshift(dataObj);
+    props.handleClose();
   };
   return (
     <View style={styles.modalView}>
@@ -146,12 +147,6 @@ export default function ShareScreen(props) {
             multiline={true}
           />
         </View>
-        <CounterComp
-          title={"Poids (grammes)"}
-          defaultVal={String(weight)}
-          increment={10}
-          changeHandler={setWeight}
-        />
         <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
           <CheckBox
             containerStyle={{}}

@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   StyleSheet,
+  RefreshControl,
 } from "react-native";
 import { List, ListItem, SearchBar } from "react-native-elements";
 import _ from "lodash";
@@ -99,6 +100,13 @@ class TicketFeed extends Component {
       <FlatList
         contentContainerStyle={styles.list}
         data={this.state.data}
+        refreshControl={
+          <RefreshControl
+            enabled={true}
+            onRefresh={this.makeRemoteRequest}
+            refreshing={this.state.loading}
+          />
+        }
         renderItem={({ item }) => {
           return (
             <>

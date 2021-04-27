@@ -13,45 +13,51 @@ function Ticket(props) {
       <Image
         style={styles.image}
         source={{
-          height: 200,
-          width: 200,
           uri: props.data.picture,
         }}
       />
-      <View style={styles.details}>
-        <Text style={{ fontFamily: "Comfortaa_700Bold", fontSize: 30 }}>
-          {props.data.title}
-        </Text>
-        <View style={styles.bar} />
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Image
-            style={{
-              borderRadius: 32,
-            }}
-            source={{ width: 32, height: 32, uri: author.picture }}
-          />
-          <Text style={{ margin: 5 }}>
-            {author.name.first + " " + author.name.last}
-          </Text>
-        </View>
-        <Tags tags={props.data.tags} />
-        <View style={styles.price}>
-          <Text
-            style={{
-              fontSize: 25,
-              fontFamily: "Comfortaa_700Bold",
-            }}
-          >
-            {props.data.price}
-          </Text>
-          <Image
-            style={{
-              height: 30,
-              width: 30,
-              resizeMode: "contain",
-            }}
-            source={require("../assets/images/Logo-Orange.png")}
-          />
+      <View style={styles.wrapper}>
+        <View style={styles.details}>
+          <View style={styles.info}>
+            <View style={{ flex: 1 }}>
+              <Text numberOfLines={1} adjustsFontSizeToFit style={styles.title}>
+                {props.data.title}
+              </Text>
+            </View>
+            <View style={styles.bar} />
+            <View style={styles.author}>
+              <Image
+                style={{
+                  borderRadius: 32,
+                }}
+                source={{ width: 32, height: 32, uri: author.picture }}
+              />
+              <Text style={{ margin: 5 }}>
+                {author.name.first + " " + author.name.last}
+              </Text>
+            </View>
+            <View style={styles.tags}>
+              <Tags tags={props.data.tags} />
+            </View>
+          </View>
+          <View style={styles.price}>
+            <Text
+              style={{
+                fontSize: 25,
+                fontFamily: "Comfortaa_700Bold",
+              }}
+            >
+              {props.data.price}
+            </Text>
+            <Image
+              style={{
+                height: 30,
+                width: 30,
+                resizeMode: "contain",
+              }}
+              source={require("../assets/images/Logo-Orange.png")}
+            />
+          </View>
         </View>
       </View>
     </View>
@@ -59,15 +65,21 @@ function Ticket(props) {
 }
 
 const styles = StyleSheet.create({
-  tagPic: { width: 30, height: 30, marginTop: 5 },
-  container: {
+  details: {
     flex: 1,
-    flexDirection: "row",
-    padding: 15,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white",
+    padding: 5,
+    justifyContent: "flex-start",
+    flexDirection: "column",
+    alignItems: "stretch",
+  },
+  info: { flex: 3 },
+  container: {
+    aspectRatio: 2,
+    alignItems: "stretch",
+    backgroundColor: "#fff",
     borderRadius: 10,
+    flexDirection: "row",
+    justifyContent: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -78,28 +90,39 @@ const styles = StyleSheet.create({
 
     elevation: 5,
   },
-  details: {
+  image: {
     flex: 1,
-    alignSelf: "stretch",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    paddingLeft: 10,
+    aspectRatio: 1,
+    width: "50%",
+    resizeMode: "cover",
+    borderRadius: 10,
+  },
+  wrapper: {
+    flex: 1,
+  },
+  title: {
+    backgroundColor: "#00f2",
+    fontSize: 200,
+    fontFamily: "Comfortaa_700Bold",
   },
   bar: {
-    marginBottom: 5,
     height: 10,
     width: 50,
     flexDirection: "row",
     backgroundColor: "#ff8b4b",
   },
-  image: {
+  author: {
     flex: 1,
-    aspectRatio: 1,
-    resizeMode: "cover",
-    borderRadius: 10,
+    padding: 5,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  tags: {
+    padding: 5,
+    flex: 1,
   },
   price: {
+    flex: 1,
     flexDirection: "row",
     alignSelf: "flex-end",
     alignItems: "center",
