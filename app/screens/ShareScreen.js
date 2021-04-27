@@ -95,7 +95,7 @@ export default function ShareScreen(props) {
       description: description,
       tags: tags,
       price: price,
-      issuer: 4,
+      issuer: 0,
       buyer: null,
     };
     Gstate.tickets.unshift(dataObj);
