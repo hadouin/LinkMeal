@@ -32,7 +32,8 @@ class ProfileScreen extends Component {
           const activeId = this.context[0].activeId;
           return (
             (ticket.issuer === activeId || ticket.buyer === activeId) &&
-            ticket.closed
+            ticket.closed &&
+            ticket.buyer !== null
           );
         })
       );
