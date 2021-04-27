@@ -4,7 +4,6 @@ import { Text, StyleSheet } from "react-native";
 class Status extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
   render() {
     switch (this.props.status) {
@@ -16,7 +15,11 @@ class Status extends Component {
         );
         break;
       case "ask":
-        return <Text style={[styles.container]}>ask</Text>;
+        return (
+          <Text style={[styles.container, { color: "hsl(200,50%,50%)" }]}>
+            Demande recue
+          </Text>
+        );
         break;
       case "closed":
         return (
