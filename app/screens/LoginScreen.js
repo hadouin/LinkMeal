@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import {
   Text,
   View,
@@ -9,6 +9,9 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
+import GlobalState from "../contexts/GlobalState";
+import tickets from "../data/ticket1.json";
+import users from "../data/user1.json";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -16,6 +19,8 @@ const windowHeight = Dimensions.get("window").height;
 export default function LoginScreen(props) {
   const [number, onChangeEmail] = React.useState(null);
   const [password, onChangePassword] = React.useState(null);
+  const [gstate, setgstate] = useContext(GlobalState);
+
   return (
     <View style={styles.container}>
       <StatusBar hidden />
@@ -52,7 +57,14 @@ export default function LoginScreen(props) {
         </View>
         <TouchableOpacity
           style={styles.connect}
-          onPress={() => props.route.params.setIsLoggedIn(true)}
+          onPress={() =>
+            setgstate({
+              tickets: tickets,
+              users: users,
+              activeId: 0,
+              isLoggedIn: true,
+            })
+          }
         >
           <Text
             style={{

@@ -12,20 +12,8 @@ export default function AuthNav(props) {
       initialRouteName="Login"
       screenOptions={{ headerShown: false }}
     >
-      <Auth.Screen
-        name="Login"
-        component={LoginScreen}
-        initialParams={{
-          setIsLoggedIn: props.route.params.setIsLoggedIn,
-        }}
-      />
-      <Auth.Screen
-        name="Register"
-        component={RegisterScreen}
-        initialParams={{
-          setIsLoggedIn: props.route.params.setIsLoggedIn,
-        }}
-      />
+      <Auth.Screen name="Login" component={LoginScreen} />
+      <Auth.Screen name="Register" component={RegisterScreen} />
       <Auth.Screen name="Forgot" component={ForgotScreen} />
     </Auth.Navigator>
   );

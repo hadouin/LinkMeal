@@ -3,21 +3,23 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import TicketFeed from "../components/TicketFeed";
 import GlobalState from "../contexts/GlobalState";
 import _ from "lodash";
-import color from "color";
 import { getUser } from "../data";
-import { isLoading } from "expo-font";
 import users from "../data/user1.json";
 
 class ProfileScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: { name: { first: "loading", last: "loading" } },
+      user: {
+        name: { first: "loading", last: "loading" },
+        picture: "https://randomuser.me/api/portraits/men/97.jpg",
+      },
     };
   }
   static contextType = GlobalState;
 
   componentDidMount() {
+    console.log(this.context);
     getUser(this.context[0].activeId).then((user) => {
       this.setState({ user: user[0] }, this.getBalance);
     });
