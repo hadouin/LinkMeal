@@ -56,10 +56,14 @@ class TicketFeed extends Component {
             }
             if (ticket.buyer === this.context[0].activeId) {
               ticket.status = "run";
-              if (ticket.closed) {
-                ticket.status = "closed";
+            }
+            if (ticket.closed) {
+              ticket.status = "closed";
+              if (ticket.buyer !== null) {
+                ticket.status = "completed";
               }
             }
+
             return ticket;
           });
           console.log(filtered);

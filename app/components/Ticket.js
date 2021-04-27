@@ -3,6 +3,8 @@ import { Text, View, StyleSheet, Image } from "react-native";
 import users from "../data/user1.json";
 import _ from "lodash";
 import Tags from "./Tags";
+import { ListItem } from "react-native-elements/dist/list/ListItem";
+import Status from "./Status";
 
 function Ticket(props) {
   var author = _.filter(users, (user) => {
@@ -24,8 +26,9 @@ function Ticket(props) {
                 {props.data.title}
               </Text>
             </View>
-            <View style={{ flexDirection: "row" }}>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
               <View style={styles.bar} />
+              <Status status={props.data.status} />
             </View>
             <View style={styles.author}>
               <Image
