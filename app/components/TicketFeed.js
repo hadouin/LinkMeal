@@ -39,6 +39,23 @@ class TicketFeed extends Component {
   makeRemoteRequest = _.debounce(() => {
     this.setState({ loading: true });
     switch (this.props.mode) {
+      case "profile":
+        getTickets(20, this.state.query, this.props.id)
+          .then((tickets) => {
+            console.log(tickets);
+            let filtered = _.filter(tickets, (ticket) => {
+              return !ticket.closed;
+            });
+            this.setState({
+              loading: false,
+              data: filtered,
+              fullData: tickets,
+            });
+          })
+          .catch((error) => {
+            this.setState({ error, loading: false });
+          });
+        break;
       case "home":
         getTickets(20, this.state.query).then((tickets) => {
           let filtered = _.filter(tickets, (ticket) => {
@@ -66,7 +83,6 @@ class TicketFeed extends Component {
 
             return ticket;
           });
-          console.log(filtered);
           this.setState({
             loading: false,
             data: filtered,
@@ -153,7 +169,7 @@ class TicketFeed extends Component {
                   this.props.navigation.navigate("Details", { item: item })
                 }
               >
-                <Ticket data={item} />
+                <Ticket data={item} mode={this.props.mode} />
               </TouchableOpacity>
             </>
           );

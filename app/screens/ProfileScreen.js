@@ -97,7 +97,11 @@ class ProfileScreen extends Component {
             Vos Annonces
           </Text>
           <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <TicketFeed {...this.props} id={this.context[0].activeId} />
+            <TicketFeed
+              {...this.props}
+              id={this.context[0].activeId}
+              mode="profile"
+            />
           </View>
         </View>
       </View>
