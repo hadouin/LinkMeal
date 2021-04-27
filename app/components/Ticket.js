@@ -101,7 +101,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    backgroundColor: "#00f2",
     fontSize: 200,
     fontFamily: "Comfortaa_700Bold",
   },
