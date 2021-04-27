@@ -145,17 +145,21 @@ export default function DetailScreen(props) {
               </Text>
             </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.order}>
-            <Text
-              style={{
-                color: "#fff",
-                fontFamily: "Comfortaa_700Bold",
-                fontSize: 20,
-              }}
-            >
-              Reserver
-            </Text>
-          </TouchableOpacity>
+          {item.buyer == null || item.issuer !== author.id ? (
+            <TouchableOpacity style={styles.order} onPress={() => {}}>
+              <Text
+                style={{
+                  color: "#fff",
+                  fontFamily: "Comfortaa_700Bold",
+                  fontSize: 20,
+                }}
+              >
+                Reserver
+              </Text>
+            </TouchableOpacity>
+          ) : (
+            <></>
+          )}
         </View>
       </View>
     </View>

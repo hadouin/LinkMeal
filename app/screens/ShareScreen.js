@@ -90,6 +90,7 @@ export default function ShareScreen(props) {
 
     const dataObj = {
       id: String(Gstate.tickets.lenght),
+      closed: false,
       picture: formattedImg,
       title: title,
       description: description,
@@ -99,6 +100,7 @@ export default function ShareScreen(props) {
       buyer: null,
     };
     Gstate.tickets.unshift(dataObj);
+    console.log(Gstate.tickets[0]);
     props.handleClose();
   };
   return (

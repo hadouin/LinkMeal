@@ -56,25 +56,25 @@
   },
   {
     "id": "6084ce5967d9f42715a8b460",
-    "closed": true,
+    "closed": false,
     "picture": "http://placehold.it/100x100",
     "title": "Quiche",
     "description": "Sit dolore esse exercitation cupidatat fugiat amet. Quis dolor eu commodo quis culpa Lorem nulla.",
     "tags": "bio",
     "price": 3,
-    "issuer": 7,
+    "issuer": 0,
     "buyer": 5
   },
   {
     "id": "6084ce59ea478df17d3e9ac8",
-    "closed": true,
-    "picture": "http://placehold.it/100x100",
-    "title": "Crepes",
+    "closed": false,
+    "picture": "https://images.unsplash.com/photo-1565087170449-fa23854a6100?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80",
+    "title": "Crêpes",
     "description": "Labore nulla sunt ea pariatur excepteur sint consectetur cillum dolor do exercitation. Duis veniam Lorem occaecat ea nulla non nulla aliqua eiusmod Lorem anim.",
     "tags": "bio",
     "price": 1,
     "issuer": 0,
-    "buyer": 19
+    "buyer": null
   },
   {
     "id": "6084ce59932fbb81676d098f",
@@ -135,7 +135,7 @@
     "id": "6084ce59d128caf520be067b",
     "closed": true,
     "picture": "http://placehold.it/100x100",
-    "title": "Crepes",
+    "title": "Crêpes",
     "description": "Ipsum ex ad irure consequat mollit duis. Nulla laborum voluptate cillum est ea.",
     "tags": "bio",
     "price": 3,
@@ -144,6 +144,7 @@
   },
   {
     "id": "6084ce5919fd284fc7398f7a",
+    "closed": true,
     "picture": "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     "title": "Pizza",
     "description": "Ad aute id sint laboris sunt eiusmod esse exercitation aute. Duis esse veniam ipsum eu.",
@@ -178,7 +179,7 @@
     "id": "6084ce59f602fa0022150068",
     "closed": true,
     "picture": "http://placehold.it/100x100",
-    "title": "Crepes",
+    "title": "Crêpes",
     "description": "Magna adipisicing sint tempor reprehenderit. Enim sit veniam enim sit proident veniam id enim sit ad dolore sint.",
     "tags": "bio",
     "price": 3,

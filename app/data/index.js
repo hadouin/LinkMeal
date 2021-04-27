@@ -1,6 +1,7 @@
-import _, { get, result } from "lodash";
+import _ from "lodash";
 import users from "./user1.json";
 import tickets from "./ticket1.json";
+import GlobalState from "../contexts/GlobalState";
 
 export const contains = (item, query) => {
   if (

@@ -30,7 +30,11 @@ class ProfileScreen extends Component {
       resolve(
         _.filter(this.context[0].tickets, (ticket) => {
           const activeId = this.context[0].activeId;
-          return ticket.issuer === activeId || ticket.buyer === activeId;
+          return (
+            (ticket.issuer === activeId || ticket.buyer === activeId) &&
+            ticket.closed &&
+            ticket.buyer !== null
+          );
         })
       );
     }).then((transfers) => {
@@ -93,7 +97,11 @@ class ProfileScreen extends Component {
             Vos Annonces
           </Text>
           <View style={{ flex: 1, alignSelf: "stretch" }}>
-            <TicketFeed {...this.props} id={this.context[0].activeId} />
+            <TicketFeed
+              {...this.props}
+              id={this.context[0].activeId}
+              mode="profile"
+            />
           </View>
         </View>
       </View>

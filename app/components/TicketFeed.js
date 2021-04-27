@@ -26,8 +26,10 @@ class TicketFeed extends Component {
       fullData: [],
     };
   }
+  static contextType = GlobalState;
   static defaultProps = {
     initialQuery: "",
+    id: null,
   };
 
   componentDidMount() {
@@ -36,19 +38,71 @@ class TicketFeed extends Component {
 
   makeRemoteRequest = _.debounce(() => {
     this.setState({ loading: true });
+    switch (this.props.mode) {
+      case "profile":
+        getTickets(20, this.state.query, this.props.id)
+          .then((tickets) => {
+            console.log(tickets);
+            let filtered = _.filter(tickets, (ticket) => {
+              return !ticket.closed;
+            });
+            this.setState({
+              loading: false,
+              data: filtered,
+              fullData: tickets,
+            });
+          })
+          .catch((error) => {
+            this.setState({ error, loading: false });
+          });
+        break;
+      case "home":
+        getTickets(20, this.state.query).then((tickets) => {
+          let filtered = _.filter(tickets, (ticket) => {
+            return (
+              ticket.issuer === this.context[0].activeId ||
+              ticket.buyer === this.context[0].activeId
+            );
+          });
+          filtered.map((ticket) => {
+            if (ticket.issuer === this.context[0].activeId) {
+              ticket.status = "run";
+              if (ticket.buyer !== null) {
+                ticket.status = "ask";
+              }
+            }
+            if (ticket.buyer === this.context[0].activeId) {
+              ticket.status = "run";
+            }
+            if (ticket.closed) {
+              ticket.status = "closed";
+              if (ticket.buyer !== null) {
+                ticket.status = "completed";
+              }
+            }
 
-    getTickets(20, this.state.query, this.props.id)
-      .then((tickets) => {
-        console.log("finished load");
-        this.setState({
-          loading: false,
-          data: tickets,
-          fullData: tickets,
+            return ticket;
+          });
+          this.setState({
+            loading: false,
+            data: filtered,
+            fullData: tickets,
+          });
         });
-      })
-      .catch((error) => {
-        this.setState({ error, loading: false });
-      });
+        break;
+      default:
+        getTickets(20, this.state.query, this.props.id)
+          .then((tickets) => {
+            this.setState({
+              loading: false,
+              data: tickets,
+              fullData: tickets,
+            });
+          })
+          .catch((error) => {
+            this.setState({ error, loading: false });
+          });
+    }
   }, 250);
 
   handleSearch = (text) => {
@@ -91,7 +145,6 @@ class TicketFeed extends Component {
   };
 
   render() {
-    console.log("rendering", "datalenght", this.state.data.length);
     return this.state.data.lenght === 0 ? (
       <View style={{ flex: 1 }}>
         <Text>C'est bien vide par ici</Text>
@@ -102,11 +155,6 @@ class TicketFeed extends Component {
         data={this.state.data}
         refreshControl={
           <RefreshControl
-            style={
-              this.props.showSearch
-                ? (console.log("okdepart"), { backgroundColor: "#00f2" })
-                : {}
-            }
             enabled={true}
             onRefresh={this.makeRemoteRequest}
             refreshing={this.state.loading}
@@ -121,7 +169,7 @@ class TicketFeed extends Component {
                   this.props.navigation.navigate("Details", { item: item })
                 }
               >
-                <Ticket data={item} />
+                <Ticket data={item} mode={this.props.mode} />
               </TouchableOpacity>
             </>
           );

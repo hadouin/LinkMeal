@@ -59,8 +59,8 @@ export default function LoginScreen(props) {
           style={styles.connect}
           onPress={() =>
             setgstate({
-              tickets: tickets,
-              users: users,
+              tickets: gstate.tickets,
+              users: gstate.users,
               activeId: 0,
               isLoggedIn: true,
             })
