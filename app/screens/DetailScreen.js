@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Image,
   Modal,
@@ -12,6 +12,8 @@ import { createIconSetFromIcoMoon } from "@expo/vector-icons";
 import users from "../data/user1.json";
 import _, { size } from "lodash";
 import Tags from "../components/Tags";
+import GlobalState from "../contexts/GlobalState";
+import Status from "../components/Status";
 
 function ContactModal(props) {
   return (
@@ -51,6 +53,7 @@ function ContactModal(props) {
 
 export default function DetailScreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
+  const [gstate, setgstate] = useContext(GlobalState);
   const Icon = createIconSetFromIcoMoon(
     require("../assets/icomoon/selection.json"),
     "IcoMoon",
@@ -99,7 +102,10 @@ export default function DetailScreen(props) {
             />
           </View>
         </View>
-        <View style={styles.bar} />
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View style={styles.bar} />
+          <Status status={item.status} />
+        </View>
         <View style={styles.author}>
           <View style={{ flexDirection: "row" }}>
             <Image
@@ -145,8 +151,18 @@ export default function DetailScreen(props) {
               </Text>
             </TouchableOpacity>
           </View>
-          {item.buyer == null || item.issuer !== author.id ? (
-            <TouchableOpacity style={styles.order} onPress={() => {}}>
+          {item.buyer === null && item.issuer !== gstate.activeId ? (
+            <TouchableOpacity
+              style={styles.order}
+              onPress={() => {
+                gstate.tickets.map((ticket) => {
+                  if (ticket.id === item.id) {
+                    ticket.buyer = gstate.activeId;
+                  }
+                  return ticket;
+                });
+              }}
+            >
               <Text
                 style={{
                   color: "#fff",
@@ -157,6 +173,11 @@ export default function DetailScreen(props) {
                 Reserver
               </Text>
             </TouchableOpacity>
+          ) : (
+            <></>
+          )}
+          {item.issuer === gstate.activeId && item.buyer !== null ? (
+            <View></View>
           ) : (
             <></>
           )}
