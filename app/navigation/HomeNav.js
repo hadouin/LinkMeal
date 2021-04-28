@@ -5,6 +5,7 @@ import { StyleSheet, View, Image } from "react-native";
 import DetailScreen from "../screens/DetailScreen";
 import MapScreen from "../screens/MapScreen";
 import { BlurView } from "expo-blur";
+import FriendInfoScreen from "../screens/FriendInfoScreen";
 
 const Home = createStackNavigator();
 
@@ -53,6 +54,7 @@ export default function HomeNav(props) {
           },
         }}
       />
+      <Home.Screen name="Info" component={FriendInfoScreen} />
     </Home.Navigator>
   );
 }

@@ -14,6 +14,7 @@ import _, { size } from "lodash";
 import Tags from "../components/Tags";
 import GlobalState from "../contexts/GlobalState";
 import Status from "../components/Status";
+import Author from "../components/Author";
 
 function ContactModal(props) {
   return (
@@ -107,18 +108,7 @@ export default function DetailScreen(props) {
           <Status status={item.status} />
         </View>
         <View style={styles.author}>
-          <View style={{ flexDirection: "row" }}>
-            <Image
-              style={{
-                borderRadius: 32,
-              }}
-              source={{ height: 32, width: 32, uri: author.picture }}
-            />
-            <Text style={{ alignSelf: "center", marginLeft: 5, color: "#222" }}>
-              {author.name.first + " " + author.name.last}
-            </Text>
-          </View>
-
+          <Author author={author} />
           <Tags tags={item.tags} />
         </View>
 
@@ -152,32 +142,75 @@ export default function DetailScreen(props) {
             </TouchableOpacity>
           </View>
           {item.buyer === null && item.issuer !== gstate.activeId ? (
-            <TouchableOpacity
-              style={styles.order}
-              onPress={() => {
-                gstate.tickets.map((ticket) => {
-                  if (ticket.id === item.id) {
-                    ticket.buyer = gstate.activeId;
-                  }
-                  return ticket;
-                });
-              }}
-            >
-              <Text
-                style={{
-                  color: "#fff",
-                  fontFamily: "Comfortaa_700Bold",
-                  fontSize: 20,
+            <View>
+              <TouchableOpacity
+                style={styles.order}
+                onPress={() => {
+                  gstate.tickets.map((ticket) => {
+                    if (ticket.id === item.id) {
+                      ticket.buyer = gstate.activeId;
+                    }
+                    return ticket;
+                  });
                 }}
               >
-                Reserver
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{
+                    color: "#fff",
+                    fontFamily: "Comfortaa_700Bold",
+                    fontSize: 20,
+                  }}
+                >
+                  Reserver
+                </Text>
+              </TouchableOpacity>
+            </View>
           ) : (
             <></>
           )}
-          {item.issuer === gstate.activeId && item.buyer !== null ? (
-            <View></View>
+          {item.issuer === gstate.activeId &&
+          item.buyer !== null &&
+          !item.closed ? (
+            <View style={styles.confirm}>
+              <View>
+                <Text>Demande de :</Text>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: "#00f2",
+                    padding: 5,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  onPress={() =>
+                    props.navigation.navigate("Info", { item: author })
+                  }
+                >
+                  <Author author={author} />
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity
+                style={styles.order}
+                onPress={() => {
+                  gstate.tickets.map((ticket) => {
+                    if (ticket.id === item.id) {
+                      ticket.closed = true;
+                    }
+                    return ticket;
+                  });
+                  props.navigation.goBack();
+                }}
+              >
+                <Text
+                  style={{
+                    color: "#fff",
+                    fontFamily: "Comfortaa_700Bold",
+                    fontSize: 20,
+                  }}
+                >
+                  Confirmer
+                </Text>
+              </TouchableOpacity>
+            </View>
           ) : (
             <></>
           )}
@@ -188,6 +221,22 @@ export default function DetailScreen(props) {
 }
 
 const styles = StyleSheet.create({
+  confirm: {
+    padding: 5,
+    alignItems: "stretch",
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+  },
   centeredView: {
     flex: 1,
     justifyContent: "center",
