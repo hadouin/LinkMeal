@@ -144,68 +144,70 @@ export default function DetailScreen(props) {
               </Text>
             </TouchableOpacity>
           </View>
-          {item.buyer === null && item.issuer !== gstate.activeId ? (
-            <View>
-              <TouchableOpacity
-                style={styles.order}
-                onPress={() => {
-                  gstate.tickets.map((ticket) => {
-                    if (ticket.id === item.id) {
-                      ticket.buyer = gstate.activeId;
-                    }
-                    return ticket;
-                  });
-                }}
-              >
-                <Text
-                  style={{
-                    color: "#fff",
-                    fontFamily: "Comfortaa_700Bold",
-                    fontSize: 20,
-                  }}
-                >
-                  Reserver
-                </Text>
-              </TouchableOpacity>
-            </View>
-          ) : (
-            <></>
-          )}
-          {item.issuer === gstate.activeId &&
-          item.buyer !== null &&
-          !item.closed ? (
-            <View style={styles.confirm}>
+          <View style={{ padding: 10 }}>
+            {item.buyer === null && item.issuer !== gstate.activeId ? (
               <View>
-                <Text>Demande de :</Text>
-                <Author {...props} author={buyer} />
-              </View>
-              <TouchableOpacity
-                style={styles.order}
-                onPress={() => {
-                  gstate.tickets.map((ticket) => {
-                    console.log("confirm attempt", ticket.id, item.id);
-                    if (ticket.id === item.id) {
-                      ticket.closed = true;
-                    }
-                    return ticket;
-                  });
-                  props.navigation.goBack();
-                }}
-              >
-                <Text
-                  style={{
-                    color: "#fff",
-                    fontFamily: "Comfortaa_700Bold",
-                    fontSize: 20,
+                <TouchableOpacity
+                  style={styles.order}
+                  onPress={() => {
+                    gstate.tickets.map((ticket) => {
+                      if (ticket.id === item.id) {
+                        ticket.buyer = gstate.activeId;
+                      }
+                      return ticket;
+                    });
                   }}
                 >
-                  Confirmer
-                </Text>
-              </TouchableOpacity>
-            </View>
-          ) : (
-            <></>
-          )}
+                  <Text
+                    style={{
+                      color: "#fff",
+                      fontFamily: "Comfortaa_700Bold",
+                      fontSize: 20,
+                    }}
+                  >
+                    Reserver
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            ) : (
+              <></>
+            )}
+            {item.issuer === gstate.activeId &&
+            item.buyer !== null &&
+            !item.closed ? (
+              <View style={styles.confirm}>
+                <View>
+                  <Text>Demande de :</Text>
+                  <Author {...props} author={buyer} />
+                </View>
+                <TouchableOpacity
+                  style={styles.order}
+                  onPress={() => {
+                    gstate.tickets.map((ticket) => {
+                      console.log("confirm attempt", ticket.id, item.id);
+                      if (ticket.id === item.id) {
+                        ticket.closed = true;
+                      }
+                      return ticket;
+                    });
+                    props.navigation.goBack();
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#fff",
+                      fontFamily: "Comfortaa_700Bold",
+                      fontSize: 20,
+                    }}
+                  >
+                    Confirmer
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            ) : (
+              <></>
+            )}
+          </View>
         </ScrollView>
       </View>
     </View>
@@ -276,7 +278,7 @@ const styles = StyleSheet.create({
   image: {
     resizeMode: "cover",
     width: "100%",
-    height: "25%",
+    height: "30%",
   },
   description: {
     padding: 5,
@@ -332,7 +334,6 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 20,
     padding: 10,
-    elevation: 2,
   },
   buttonClose: {
     backgroundColor: "#ff8b4b",
