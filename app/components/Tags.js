@@ -32,7 +32,13 @@ function Tags(props) {
   );
 }
 const styles = StyleSheet.create({
-  tagPic: { width: 30, height: 30, marginVertical: 5, marginRight: 5 },
+  tagPic: {
+    height: 30,
+    width: 30,
+    aspectRatio: 1,
+    padding: 5,
+    resizeMode: "contain",
+  },
 });
 
 export default Tags;
