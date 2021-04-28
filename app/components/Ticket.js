@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import users from "../data/user1.json";
 import _ from "lodash";
 import Tags from "./Tags";
 import { ListItem } from "react-native-elements/dist/list/ListItem";
 import Status from "./Status";
+import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 
 function Ticket(props) {
+  const [state, setState] = useState({ height: 30, width: 30 });
   var author = _.filter(users, (user) => {
     return user.id === props.data.issuer;
   })[0];
+  const onPageLayout = (event) => {
+    const { width, height } = event.nativeEvent.layout;
+    console.log("ON LAYOUT");
+    setState({ width, height });
+    console.log(height);
+  };
   return (
     <View style={styles.container}>
       <Image
@@ -21,8 +29,8 @@ function Ticket(props) {
       <View style={styles.wrapper}>
         <View style={styles.details}>
           <View style={styles.info}>
-            <View style={{ flex: 1 }}>
-              <Text numberOfLines={1} adjustsFontSizeToFit style={styles.title}>
+            <View style={{ flex: 1 }} onLayout={onPageLayout}>
+              <Text numberOfLines={1} style={[styles.title]}>
                 {props.data.title}
               </Text>
             </View>
@@ -106,7 +114,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 200,
+    backgroundColor: "#00f2",
+    fontSize: scale(18),
     fontFamily: "Comfortaa_700Bold",
   },
   bar: {
