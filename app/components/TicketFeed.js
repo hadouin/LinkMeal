@@ -93,9 +93,25 @@ class TicketFeed extends Component {
       default:
         getTickets(20, this.state.query, this.props.id)
           .then((tickets) => {
+            let filtered = _.filter(tickets, (ticket) => {
+              return !ticket.closed;
+            });
+            filtered.map((ticket) => {
+              ticket.status = "run";
+              if (ticket.buyer !== null) {
+                ticket.status = "ask";
+              }
+              if (ticket.closed) {
+                ticket.status = "closed";
+                if (ticket.buyer !== null) {
+                  ticket.status = "completed";
+                }
+              }
+              return ticket;
+            });
             this.setState({
               loading: false,
-              data: tickets,
+              data: filtered,
               fullData: tickets,
             });
           })
