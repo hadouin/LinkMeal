@@ -10,14 +10,14 @@ class Status extends Component {
       case "run":
         return (
           <Text style={[styles.container, { color: "hsl(0,0%,50%)" }]}>
-            En attente
+            Libre
           </Text>
         );
         break;
       case "ask":
         return (
           <Text style={[styles.container, { color: "hsl(200,50%,50%)" }]}>
-            Demande recue
+            En attente
           </Text>
         );
         break;
