@@ -1,31 +1,31 @@
 [
   {
     "id": "6084ce59c59cf158ef10aa7a",
-    "closed": true,
+    "closed": false,
     "picture": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     "title": "Pizza",
     "description": "Laboris aute incididunt laborum irure ad aliqua eu non. Nulla aute consequat reprehenderit et sint.",
     "tags": "vegan",
     "price": 2,
     "issuer": 4,
-    "buyer": 11
+    "buyer": null
   },
   {
     "id": "6084ce5947a3728a2337e397",
-    "closed": true,
+    "closed": false,
     "picture": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFzdGF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "title": "Pâtes",
     "description": "Ex laborum voluptate mollit deserunt proident duis nisi consequat nulla quis duis elit mollit. Voluptate reprehenderit voluptate magna magna pariatur.",
     "tags": "gFree",
     "price": 1,
     "issuer": 2,
-    "buyer": 7
+    "buyer": null
   },
   {
     "id": "6084ce59e1719444d0012dc5",
-    "closed": true,
+    "closed": false,
     "picture": "https://images.unsplash.com/photo-1551807501-9263ed1942d8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cXVpY2hlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    "title": "Quiche",
+    "title": "Lasagnes saumon épinards ",
     "description": "Sit non ex elit culpa commodo cillum cupidatat irure. Aute adipisicing nulla elit veniam cupidatat est in laboris ut ut aliquip quis culpa.",
     "tags": "vegan",
     "price": 1,
