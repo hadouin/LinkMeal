@@ -42,7 +42,6 @@ class TicketFeed extends Component {
       case "profile":
         getTickets(20, this.state.query, this.props.id)
           .then((tickets) => {
-            console.log(tickets);
             let filtered = _.filter(tickets, (ticket) => {
               return !ticket.closed;
             });

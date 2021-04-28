@@ -25,7 +25,6 @@ export default function ProfileNav(props) {
         component={ProfileScreen}
         options={({ navigation }) => ({
           headerRight: () => {
-            console.log(navigation);
             return (
               <TouchableOpacity
                 style={styles.container}

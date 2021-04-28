@@ -19,7 +19,6 @@ class ProfileScreen extends Component {
   static contextType = GlobalState;
 
   componentDidMount() {
-    console.log(this.context);
     getUser(this.context[0].activeId).then((user) => {
       this.setState({ user: user[0] }, this.getBalance);
     });
@@ -43,8 +42,9 @@ class ProfileScreen extends Component {
         if (item.buyer === this.context[0].activeId) {
           balance = balance - item.price;
         }
-        if (item.issuer === this.context[0].activeId) {
+        if (item.issuer === this.context[0].activeId && item.buyer !== null) {
           balance = balance + item.price;
+          console.log(typeof balance, balance);
         }
         console.log("balance set :", balance);
         this.setState({ balance: balance });
