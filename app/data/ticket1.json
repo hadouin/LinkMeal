@@ -45,14 +45,14 @@
   },
   {
     "id": "6084ce59e4a20d7c92cf05f9",
-    "closed": true,
+    "closed": false,
     "picture": "http://placehold.it/100x100",
     "title": "Quiche",
     "description": "Nisi enim proident irure aliqua aute aliquip do dolor elit. Sunt sit excepteur Lorem deserunt aute fugiat et enim laboris consequat cupidatat labore officia excepteur.",
     "tags": "gFree",
     "price": 3,
     "issuer": 3,
-    "buyer": 11
+    "buyer": null
   },
   {
     "id": "6084ce5967d9f42715a8b460",
