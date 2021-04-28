@@ -15,6 +15,8 @@ import Tags from "../components/Tags";
 import GlobalState from "../contexts/GlobalState";
 import Status from "../components/Status";
 import Author from "../components/Author";
+import { ScrollView } from "react-native-gesture-handler";
+import { getUser } from "../data/index";
 
 function ContactModal(props) {
   return (
@@ -65,6 +67,7 @@ export default function DetailScreen(props) {
   var author = _.filter(users, (user) => {
     return user.id === item.issuer;
   })[0];
+  var buyer = _.filter(users, (user) => user.id === item.buyer)[0];
   return (
     <View style={styles.container}>
       <Modal
@@ -89,7 +92,7 @@ export default function DetailScreen(props) {
             justifyContent: "space-between",
           }}
         >
-          <Text style={styles.title}>{item.title}</Text>
+          <Text style={[styles.title, { flex: 3 }]}>{item.title}</Text>
           <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
             <Text style={styles.title}>{item.price}</Text>
             <Image
@@ -108,11 +111,11 @@ export default function DetailScreen(props) {
           <Status status={item.status} />
         </View>
         <View style={styles.author}>
-          <Author author={author} />
+          <Author {...props} author={author} />
           <Tags tags={item.tags} />
         </View>
 
-        <View style={styles.description}>
+        <ScrollView style={styles.description}>
           <Text style={{ padding: 5, color: "#222" }}>{item.description}</Text>
           <View style={styles.buttons}>
             <TouchableOpacity
@@ -174,19 +177,7 @@ export default function DetailScreen(props) {
             <View style={styles.confirm}>
               <View>
                 <Text>Demande de :</Text>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: "#00f2",
-                    padding: 5,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                  onPress={() =>
-                    props.navigation.navigate("Info", { item: author })
-                  }
-                >
-                  <Author author={author} />
-                </TouchableOpacity>
+                <Author {...props} author={buyer} />
               </View>
               <TouchableOpacity
                 style={styles.order}
@@ -214,7 +205,7 @@ export default function DetailScreen(props) {
           ) : (
             <></>
           )}
-        </View>
+        </ScrollView>
       </View>
     </View>
   );
@@ -305,6 +296,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontFamily: "Comfortaa_700Bold",
     color: "#222",
+  },
+  price: {
+    flex: 1,
   },
   buttons: {
     padding: 5,
