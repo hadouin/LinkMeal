@@ -14,9 +14,7 @@ function Ticket(props) {
   })[0];
   const onPageLayout = (event) => {
     const { width, height } = event.nativeEvent.layout;
-    console.log("ON LAYOUT");
     setState({ width, height });
-    console.log(height);
   };
   return (
     <View style={styles.container}>
@@ -114,7 +112,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    backgroundColor: "#00f2",
     fontSize: scale(18),
     fontFamily: "Comfortaa_700Bold",
   },

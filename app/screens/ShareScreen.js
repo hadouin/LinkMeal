@@ -95,7 +95,7 @@ export default function ShareScreen(props) {
       title: title,
       description: description,
       tags: tags,
-      price: price,
+      price: parseInt(price, 10),
       issuer: Gstate.activeId,
       buyer: null,
     };
