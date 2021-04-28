@@ -5,7 +5,7 @@
     "picture": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     "title": "Pizza",
     "description": "Laboris aute incididunt laborum irure ad aliqua eu non. Nulla aute consequat reprehenderit et sint.",
-    "tags": "vegan",
+    "tags": ["vegan", "bio"],
     "price": 2,
     "issuer": 4,
     "buyer": null
@@ -24,7 +24,7 @@
   {
     "id": "6084ce59e1719444d0012dc5",
     "closed": false,
-    "picture": "https://images.unsplash.com/photo-1551807501-9263ed1942d8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cXVpY2hlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "picture": "https://img.cuisineaz.com/660x660/2013-12-20/i48093-lasagnes-saumon-epinards.jpeg",
     "title": "Lasagnes saumon épinards ",
     "description": "Sit non ex elit culpa commodo cillum cupidatat irure. Aute adipisicing nulla elit veniam cupidatat est in laboris ut ut aliquip quis culpa.",
     "tags": "vegan",
@@ -38,18 +38,18 @@
     "picture": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     "title": "Pizza",
     "description": "Proident reprehenderit elit ipsum laborum amet sit ut officia quis sit quis. Occaecat laboris ullamco mollit consectetur nisi eiusmod laborum deserunt et.",
-    "tags": "gFree",
+    "tags": "",
     "price": 2,
     "issuer": 17,
-    "buyer": 7
+    "buyer": null
   },
   {
     "id": "6084ce59e4a20d7c92cf05f9",
     "closed": false,
-    "picture": "http://placehold.it/100x100",
+    "picture": "https://images.unsplash.com/photo-1591985666643-1ecc67616216?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
     "title": "Quiche",
     "description": "Nisi enim proident irure aliqua aute aliquip do dolor elit. Sunt sit excepteur Lorem deserunt aute fugiat et enim laboris consequat cupidatat labore officia excepteur.",
-    "tags": "gFree",
+    "tags": "",
     "price": 3,
     "issuer": 3,
     "buyer": null
@@ -57,8 +57,8 @@
   {
     "id": "6084ce5967d9f42715a8b460",
     "closed": false,
-    "picture": "http://placehold.it/100x100",
-    "title": "Lasagne Saumon epinard",
+    "picture": "https://images.unsplash.com/photo-1585238342070-61e1e768b1ff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y291c2NvdXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+    "title": "Couscous",
     "description": "Sit dolore esse exercitation cupidatat fugiat amet. Quis dolor eu commodo quis culpa Lorem nulla.",
     "tags": "bio",
     "price": 3,
@@ -85,7 +85,7 @@
     "tags": "vegan",
     "price": 3,
     "issuer": 10,
-    "buyer": 16
+    "buyer": null
   },
   {
     "id": "6084ce59c4bb15af3213824d",
@@ -100,9 +100,9 @@
   },
   {
     "id": "6084ce59d1a536dbb4fe3660",
-    "closed": true,
-    "picture": "http://placehold.it/100x100",
-    "title": "Lasagne",
+    "closed": false,
+    "picture": "https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+    "title": "Gâteau chocolat",
     "description": "Nostrud proident excepteur magna culpa minim qui. Esse qui nisi ut voluptate.",
     "tags": "bio",
     "price": 3,

@@ -183,6 +183,7 @@ export default function DetailScreen(props) {
                 style={styles.order}
                 onPress={() => {
                   gstate.tickets.map((ticket) => {
+                    console.log("confirm attempt", ticket.id, item.id);
                     if (ticket.id === item.id) {
                       ticket.closed = true;
                     }
