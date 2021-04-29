@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
   },
   info: { flex: 3 },
   container: {
+    flexBasis: 100,
     aspectRatio: 2,
     alignItems: "stretch",
     backgroundColor: "#fff",
